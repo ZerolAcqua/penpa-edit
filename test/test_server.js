@@ -33,6 +33,6 @@ app.post("/snapshot", (req, res) => {
     });
 })
 
-const port = 5000;
+const port = process.env.PORT || 5000;
 console.log(`Go to: http://localhost:${port}`);
 app.listen(port);

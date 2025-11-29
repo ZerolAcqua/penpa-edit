@@ -2,7 +2,7 @@
   "name": "penpa-tests",
   "scripts": {
     "test": "nodemon --watch test/test_server.js test/test_server.js",
-    "local": "npx browser-sync start --server docs"
+    "local": "npx browser-sync start --server docs --port 8083"
   },
   "devDependencies": {
     "browser-sync": "^2.28.1",

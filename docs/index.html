@@ -27,7 +27,7 @@
     <link rel="shortcut icon" href="./css/images/logo.png" />
     <link rel="apple-touch-icon" href="./css/images/logo.png" />
     <!-- Google Tag Manager -->
-    <script>
+    <!-- <script>
         (function(w, d, s, l, i) {
             w[l] = w[l] || [];
             w[l].push({
@@ -42,9 +42,18 @@
                 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
             f.parentNode.insertBefore(j, f);
         })(window, document, 'script', 'dataLayer', 'GTM-TSBMV8L8');
-    </script>
+    </script> -->
     <!-- End Google Tag Manager -->
     <!-- STYLES -->
+    <!-- Prevent translation flash by hiding content initially -->
+    <style>
+        body {
+            visibility: hidden;
+        }
+        body.translation-ready {
+            visibility: visible;
+        }
+    </style>
     <!-- Local styles -->
     <script>
         var ver = "3.2.1"; // Also defined in class_p.js
@@ -1503,9 +1512,9 @@
                             </td>
                             <td>
                                 <select name="language" id="language_opt">
-                                    <option value="EN" selected="selected">English</option>
+                                    <option value="EN">English</option>
                                     <option value="JP">日本語</option>
-                                    <option value="ZH">中文</option>
+                                    <option value="ZH" selected="selected">中文</option>
                                 </select>
                             </td>
                         </tr>
@@ -1885,6 +1894,18 @@
             document.head.appendChild(script);
         }
         document.getElementById('version-number').innerHTML = ver;
+
+        // Initialize Chinese translation after all scripts are loaded
+        window.addEventListener('load', function() {
+            // Small delay to ensure all scripts are fully loaded
+            setTimeout(function() {
+                if (typeof trans === 'function') {
+                    trans();
+                }
+                // Show the interface after translation is complete
+                document.body.classList.add('translation-ready');
+            }, 100);
+        });
     </script>
 </body>
 
