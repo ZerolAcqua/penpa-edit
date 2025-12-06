@@ -25,8 +25,18 @@ function trans_text(button_text, label_text, placeholder) {
         }
     }
 
-    PenpaText._innerText.forEach(el => document.getElementById(el).textContent = PenpaText.get(el));
-    PenpaText._placeholder.forEach(el => document.getElementById(el).placeholder = PenpaText.get(el));
+    PenpaText._innerText.forEach(el => {
+        const element = document.getElementById(el);
+        if (element) {
+            element.textContent = PenpaText.get(el);
+        }
+    });
+    PenpaText._placeholder.forEach(el => {
+        const element = document.getElementById(el);
+        if (element) {
+            element.placeholder = PenpaText.get(el);
+        }
+    });
     document.querySelectorAll('.lb_generic_yes').forEach(el => el.textContent = PenpaText.get('yes'));
     document.querySelectorAll('.lb_generic_no').forEach(el => el.textContent = PenpaText.get('no'));
     document.querySelectorAll('.lb_generic_on').forEach(el => el.textContent = PenpaText.get('on'));
@@ -162,7 +172,7 @@ function trans() {
         "sub_number6_lb": { JP: "中", EN: "M", ZH: "中" },
         "sub_number5_lb": { JP: "小", EN: "S", ZH: "小" },
         "sub_number8_lb": { JP: "長文", EN: "Long", ZH: "长文" },
-        "sub_number7_lb": { JP: "候補", EN: "Candidates", ZH: "候选数" },
+        "sub_number7_lb": { JP: "候補", EN: "Candidates", ZH: "标记" },
         "sub_number11_lb": { JP: "キラー", EN: "Killer", ZH: "杀手" },
         "sub_cage2_lb": { JP: "自由", EN: "Free", ZH: "自由" },
         "sub_cage1_lb": { JP: "キラー", EN: "Killer", ZH: "杀手" },
@@ -441,7 +451,7 @@ function trans() {
         "firstcell_row_lb": { JP: "行：", EN: "Row:", ZH: "行：" },
         "firstcell_column_lb": { JP: "列：", EN: "Col:", ZH: "列：" },
         "sudokusize_lb": { JP: "サイズ：", EN: "Size:", ZH: "尺寸：" },
-        "ignore_pencilmarks_lb": { JP: "鉛筆マークを無視 (L, M, S値)", EN: "Ignore Pencil Marks (L, M, S values)", ZH: "忽略候选数字 (L, M, S值)" },
+        "ignore_pencilmarks_lb": { JP: "鉛筆マークを無視 (L, M, S値)", EN: "Ignore Pencil Marks (L, M, S values)", ZH: "忽略标记 (L, M, S值)" },
         "sudokuIgnoreSpaces_lb": { JP: "インポート時の空白を無視", EN: "Ignore Whitespace for Import", ZH: "导入时忽略空白符" },
         "sudokuIgnoreNotSquare_lb": { JP: "非正方形チェックをスキップ", EN: "Skip Import Non-Square Check", ZH: "跳过导入非方形检查" },
         "modal-input-parameters-text": { JP: "*数独グリッドの最初のセルの位置とサイズを指定してください[任意]：", EN: "*Specify the location of the first cell of your sudoku grid and its size[optional]:", ZH: "*指定数独盘面第一个单元格的位置和尺寸[可选]：" },
@@ -553,7 +563,40 @@ const PenpaText = {
         'lb_settings_local_storage',
         'clear_storage_one',
         'clear_storage_all',
-        'local_storage_browser_message'
+        'local_storage_browser_message',
+        // Keyboard shortcuts - only IDs that actually exist in HTML
+        'ks_multicolor_mode_title',
+        'ks_sudoku_mode_title',
+        'ks_surface_mode_title',
+        'ks_header',
+        'ks_undo',
+        'ks_redo',
+        'ks_clone',
+        'ks_copy_previous',
+        'ks_delete_all',
+        'ks_enter_space',
+        'ks_select_all',
+        'ks_rectangle_select',
+        'ks_problem_mode',
+        'ks_solution_mode',
+        'ks_toggle_timer',
+        'ks_cycle_tools',
+        'ks_clear_selection',
+        'ks_show_shortcuts',
+        'ks_multicolor_desc',
+        'ks_normal_submode',
+        'ks_corner_submode',
+        'ks_centre_submode',
+        'ks_shading',
+        'ks_temp_corner',
+        'ks_delete_corner',
+        'ks_temp_centre',
+        'ks_delete_centre',
+        'ks_delete_all_contents',
+        'ks_delete_submode_contents',
+        'ks_double_click',
+        'ks_footnote',
+        'ks_surface_desc'
     ],
     _placeholder: [
         'saveimagename',
@@ -732,7 +775,7 @@ const PenpaText = {
         lb_settings_conflict_off_all: { EN: 'OFF (all puzzles)', JP: 'OFF（全てのパズル）', ZH: '关闭（全部谜题）' },
         lb_settings_sudoku_keys: { EN: 'Sudoku Z/Y & XCV Keys:', JP: '数独のショートカットキ (Z/Y & XCV)', ZH: '数独快捷键（Z/Y & XCV）' },
         lb_settings_textoutline: { EN: 'Outline on Text:', JP: 'テキストのアウトライン', ZH: '文字描边：' },
-        lb_settings_pencil_marks: { EN: 'Check pencil marks:', JP: '候補数字をチェック', ZH: '检测候选数字：' },
+        lb_settings_pencil_marks: { EN: 'Check pencil marks:', JP: '候補数字をチェック', ZH: '检测标记：' },
         lb_settings_lineanycolor: { EN: 'Any color can match green line/edge in solution:', JP: 'どの色も解答の緑線/辺と一致する', ZH: '任意颜色可与解答中绿色线/边匹配：' },
         lb_settings_auto_save_history: { EN: 'Auto-save puzzle in browser history:', JP: 'ブラウザの履歴にパズルを自動保存', ZH: '在浏览器历史中自动保存谜题：' },
         lb_settings_storage: { EN: 'Saving/Storage', JP: '保存', ZH: '存储' },
@@ -1034,6 +1077,168 @@ const PenpaText = {
             ZH: '<h3 class="info">无法使用“格子”模式删去全部格子。如果需要空盘面请按照以下步骤操作：</h3><ol><li>点击“新建/更新”</li><li>设置“格线”为“无”</li><li>设置“格点”为“无”</li><li>设置“外框”为“无”</li><li>点击“更新盘面”</li></ol>'
         },
 
+        // Keyboard shortcuts modal
+        ks_multicolor_mode_title: {
+            EN: 'In Multicolor Mode',
+            JP: 'マルチカラーモードで',
+            ZH: '在多色模式下'
+        },
+        ks_sudoku_mode_title: {
+            EN: 'In Sudoku Mode',
+            JP: '数独モードで',
+            ZH: '在数独模式下'
+        },
+        ks_surface_mode_title: {
+            EN: 'In Surface Mode',
+            JP: 'サーフェスモードで',
+            ZH: '在涂色模式下'
+        },
+        ks_header: {
+            EN: 'Keyboard Shortcuts',
+            JP: 'キーボードショートカット',
+            ZH: '快捷键说明'
+        },
+        ks_undo: {
+            EN: 'Undo',
+            JP: '元に戻す',
+            ZH: '撤销'
+        },
+        ks_redo: {
+            EN: 'Redo',
+            JP: 'やり直し',
+            ZH: '重做'
+        },
+        ks_clone: {
+            EN: 'Clone',
+            JP: '複製',
+            ZH: '复制'
+        },
+        ks_copy_previous: {
+            EN: 'To copy the previous number/alphabet/symbol from Number mode with PANEL: ON',
+            JP: 'PANEL: ON の数字モードで前の数字/文字/記号をコピー',
+            ZH: '在数字模式（面板开启）下复制前一个数字/字母/符号'
+        },
+        ks_delete_all: {
+            EN: 'Delete numbers and symbols at the same time',
+            JP: '数字と記号を同時に削除',
+            ZH: '同时删除数字和符号'
+        },
+        ks_enter_space: {
+            EN: 'Enter a space (Works in "Number" Mode => "L", "M", "S" and Long" SubMode options only)',
+            JP: 'スペースを入力（数字モードの「L」「M」「S」「Long」サブモードのみ）',
+            ZH: '输入空格（仅在"数字"模式的"L"、"M"、"S"和"长"子模式下有效）'
+        },
+        ks_select_all: {
+            EN: 'Select all cells',
+            JP: '全セル選択',
+            ZH: '选择所有单元格'
+        },
+        ks_rectangle_select: {
+            EN: 'For rectangular selection',
+            JP: '矩形選択',
+            ZH: '矩形选择'
+        },
+        ks_problem_mode: {
+            EN: 'Problem mode',
+            JP: '問題モード',
+            ZH: '问题模式'
+        },
+        ks_solution_mode: {
+            EN: 'Solution mode',
+            JP: '解答モード',
+            ZH: '解答模式'
+        },
+        ks_toggle_timer: {
+            EN: 'Hide/Show Timer',
+            JP: 'タイマー表示/非表示',
+            ZH: '显示/隐藏计时器'
+        },
+        ks_cycle_tools: {
+            EN: 'Cycle Input Tools',
+            JP: '入力ツール循環',
+            ZH: '切换输入工具'
+        },
+        ks_clear_selection: {
+            EN: 'To clear selection or exit open dialogues',
+            JP: '選択をクリアまたは開いているダイアログを閉じる',
+            ZH: '清除选择或关闭对话框'
+        },
+        ks_show_shortcuts: {
+            EN: 'Show keyboard shortcuts',
+            JP: 'キーボードショートカットを表示',
+            ZH: '显示快捷键说明'
+        },
+        ks_multicolor_desc: {
+            EN: 'Use number keys 0 - 9 to fill colors in the selected cells. switch between styles. For styles 11 and 12, press ALT+1 or ALT+2 respectively.',
+            JP: '数字キー0-9で選択したセルに色を塗る。スタイル11と12の場合はALT+1またはALT+2を押す。',
+            ZH: '使用数字键0-9为选中的单元格填充颜色。对于样式11和12，分别按ALT+1或ALT+2。'
+        },
+        ks_normal_submode: {
+            EN: 'Normal Submode*',
+            JP: '通常サブモード*',
+            ZH: '普通子模式*'
+        },
+        ks_corner_submode: {
+            EN: 'Corner Submode*',
+            JP: '角サブモード*',
+            ZH: '角落子模式*'
+        },
+        ks_centre_submode: {
+            EN: 'Centre Submode*',
+            JP: '中央サブモード*',
+            ZH: '中心子模式*'
+        },
+        ks_shading: {
+            EN: 'Shading*',
+            JP: '陰影*',
+            ZH: '着色*'
+        },
+        ks_temp_corner: {
+            EN: 'For Temporary Corner Submode',
+            JP: '一時的な角サブモード',
+            ZH: '临时角落子模式'
+        },
+        ks_delete_corner: {
+            EN: 'Deletes only corner pencil marks from the selected cells',
+            JP: '選択したセルから角の鉛筆マークのみを削除',
+            ZH: '仅删除选中单元格的角落标记'
+        },
+        ks_temp_centre: {
+            EN: 'For Temporary Centre Submode / Selecting Multiple Cells/ Deselecting selected cells',
+            JP: '一時的な中央サブモード / 複数セル選択 / 選択解除',
+            ZH: '临时中心子模式 / 选择多个单元格 / 取消选择'
+        },
+        ks_delete_centre: {
+            EN: 'Deletes only centre pencil marks from the selected cells',
+            JP: '選択したセルから中央の鉛筆マークのみを削除',
+            ZH: '仅删除选中单元格的中心标记'
+        },
+        ks_delete_all_contents: {
+            EN: 'To delete all the contents of the cell',
+            JP: 'セルの全内容を削除',
+            ZH: '删除单元格的所有内容'
+        },
+        ks_delete_submode_contents: {
+            EN: 'To delete only the selected submode contents. (E.g. If the cell contains both centre and corner pencil marks, and if the current submode selection is "Corner submode", the pressing Spacebar would delete only the corner pencil marks)',
+            JP: '選択したサブモードの内容のみを削除。（例：セルに中央と角の両方の鉛筆マークがあり、現在のサブモード選択が「角サブモード」の場合、スペースバーを押すと角の鉛筆マークのみが削除される）',
+            ZH: '仅删除选定子模式的内容。（例如：如果单元格包含中心和角落标记，当前子模式选择为"角落子模式"，按空格键只会删除角落标记）'
+        },
+        ks_double_click: {
+            EN: 'Double clicking the number in a cell will select all instances of that number. (applies to number mode as well)',
+            JP: 'セル内の数字をダブルクリックすると、その数字のすべてのインスタンスが選択される。（数字モードにも適用）',
+            ZH: '双击单元格中的数字将选择该数字的所有实例。（同样适用于数字模式）'
+        },
+        ks_footnote: {
+            EN: '* These can be disabled from Settings.',
+            JP: '* これらは設定で無効にできます。',
+            ZH: '* 这些可以在设置中禁用。'
+        },
+        ks_surface_desc: {
+            EN: 'Use number keys 0 - 9 to quickly switch between styles. For styles 11 and 12, press 1 and the second digit in quick succession.',
+            JP: '数字キー0-9でスタイルを素早く切り替える。スタイル11と12の場合は、1と2桁目を素早く続けて押す。',
+            ZH: '使用数字键0-9快速切换样式。对于样式11和12，快速连续按1和第二个数字。'
+        },
+
         _todo: {}
     },
 
@@ -1065,7 +1270,7 @@ const PenpaText = {
             "边 常规", "边 对角线", "边 自由绘制", "边 x标记", "边 清除",
             "墙",
             "移动 全部",
-            "数字 常规", "数字 大", "数字 中", "数字 小", "数字 候选数", "数字 1/4", "数字 边缘",
+            "数字 常规", "数字 大", "数字 中", "数字 小", "数字 标记", "数字 1/4", "数字 边缘",
             "数独 常规", "数独 角", "数独 中央",
             "形状",
             "特殊", "温度计", "数独箭头",

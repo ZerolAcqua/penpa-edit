@@ -1800,46 +1800,46 @@
     </div>
     <div id="modal-keys" class="modal">
         <div id="modal-keys-content" class="modal-content modal-content-wide">
-            <h3 class="modal-header">Keyboard Shortcuts</h3>
+            <h3 class="modal-header" id="ks_header">Keyboard Shortcuts</h3>
             <div class="modal-inner-wrapper">
                 <div>
                     <ul>
-                        <li><kbd>Ctrl</kbd> + <kbd>z</kbd>: Undo</li>
-                        <li><kbd>Ctrl</kbd> + <kbd>y</kbd>: Redo</li>
-                        <li><kbd>Ctrl</kbd> + <kbd>d</kbd>: Clone</li>
-                        <li><kbd>Ctrl</kbd> + <kbd>i</kbd>: To copy the previous number/alphabet/symbol from Number mode with PANEL: ON</li>
-                        <li><kbd>Ctrl</kbd> + <kbd>Space</kbd>: Delete numbers and symbols at the same time</li>
-                        <li><kbd>Shift</kbd> + <kbd>Space</kbd>: Enter a space (Works in "Number" Mode => "L", "M", "S" and Long" SubMode options only)</li>
-                        <li><kbd>Ctrl</kbd> + <kbd>a</kbd>: Select all cells</li>
-                        <li><kbd>Alt</kbd> + <kbd>drag</kbd>: For rectangular selection</li>
-                        <li><kbd>F2</kbd>: Problem mode</li>
-                        <li><kbd>F3</kbd>: Solution mode</li>
-                        <li><kbd>F4</kbd>: Hide/Show Timer</li>
-                        <li><kbd>Tab</kbd> or <kbd>Enter</kbd>: Cycle Input Tools</li>
-                        <li><kbd>ESC</kbd>: To clear selection or exit open dialogues</li>
-                        <li><kbd>?</kbd>: Show keyboard shortcuts</li>
+                        <li><kbd>Ctrl</kbd> + <kbd>z</kbd>: <span id="ks_undo">Undo</span></li>
+                        <li><kbd>Ctrl</kbd> + <kbd>y</kbd>: <span id="ks_redo">Redo</span></li>
+                        <li><kbd>Ctrl</kbd> + <kbd>d</kbd>: <span id="ks_clone">Clone</span></li>
+                        <li><kbd>Ctrl</kbd> + <kbd>i</kbd>: <span id="ks_copy_previous">To copy the previous number/alphabet/symbol from Number mode with PANEL: ON</span></li>
+                        <li><kbd>Ctrl</kbd> + <kbd>Space</kbd>: <span id="ks_delete_all">Delete numbers and symbols at the same time</span></li>
+                        <li><kbd>Shift</kbd> + <kbd>Space</kbd>: <span id="ks_enter_space">Enter a space (Works in "Number" Mode => "L", "M", "S" and Long" SubMode options only)</span></li>
+                        <li><kbd>Ctrl</kbd> + <kbd>a</kbd>: <span id="ks_select_all">Select all cells</span></li>
+                        <li><kbd>Alt</kbd> + <kbd>drag</kbd>: <span id="ks_rectangle_select">For rectangular selection</span></li>
+                        <li><kbd>F2</kbd>: <span id="ks_problem_mode">Problem mode</span></li>
+                        <li><kbd>F3</kbd>: <span id="ks_solution_mode">Solution mode</span></li>
+                        <li><kbd>F4</kbd>: <span id="ks_toggle_timer">Hide/Show Timer</span></li>
+                        <li><kbd>Tab</kbd> / <kbd>Enter</kbd>: <span id="ks_cycle_tools">Cycle Input Tools</span></li>
+                        <li><kbd>ESC</kbd>: <span id="ks_clear_selection">To clear selection or exit open dialogues</span></li>
+                        <li><kbd>?</kbd>: <span id="ks_show_shortcuts">Show keyboard shortcuts</span></li>
                     </ul>
-                    <h5 class="modal-subheader">In Multicolor Mode</h5>
-                    <p>Use number keys <kbd>0</kbd> - <kbd>9</kbd> to fill colors in the selected cells. switch between styles. For styles 11 and 12, press <kbd>ALT</kbd>+<kbd>1</kbd> or <kbd>ALT</kbd>+<kbd>2</kbd> respectively.</p>
+                    <h5 class="modal-subheader" id="ks_multicolor_mode_title">In Multicolor Mode</h5>
+                    <p id="ks_multicolor_desc">Use number keys <kbd>0</kbd> - <kbd>9</kbd> to fill colors in the selected cells. switch between styles. For styles 11 and 12, press <kbd>ALT</kbd>+<kbd>1</kbd> or <kbd>ALT</kbd>+<kbd>2</kbd> respectively.</p>
                 </div>
                 <div>
-                    <h5 class="modal-subheader">In Sudoku Mode</h5>
+                    <h5 class="modal-subheader" id="ks_sudoku_mode_title">In Sudoku Mode</h5>
                     <ul>
-                        <li><kbd>z</kbd>: Normal Submode*</li>
-                        <li><kbd>x</kbd>: Corner Submode*</li>
-                        <li><kbd>c</kbd>: Centre Submode*</li>
-                        <li><kbd>v</kbd>: Shading*</li>
-                        <li><kbd>Shift</kbd>: For Temporary Corner Submode</li>
-                        <li><kbd>Shift</kbd> + <kbd>Delete</kbd>: Deletes only corner pencil marks from the selected cells</li>
-                        <li><kbd>Ctrl</kbd> - For Temporary Centre Submode / Selecting Multiple Cells/ Deselecting selected cells</li>
-                        <li><kbd>Ctrl</kbd> + <kbd>Delete</kbd>: Deletes only centre pencil marks from the selected cells</li>
-                        <li><kbd>Delete</kbd>: To delete all the contents of the cell</li>
-                        <li><kbd>Space</kbd>: To delete only the selected submode contents. (E.g. If the cell contains both centre and corner pencil marks, and if the current submode selection is "Corner submode", the pressing Spacebar would delete only the corner pencil marks)</li>
-                        <li><kbd>Double click</kbd>: Double clicking the number in a cell will select all instances of that number. (applies to number mode as well)</li>
+                        <li><kbd>z</kbd>: <span id="ks_normal_submode">Normal Submode*</span></li>
+                        <li><kbd>x</kbd>: <span id="ks_corner_submode">Corner Submode*</span></li>
+                        <li><kbd>c</kbd>: <span id="ks_centre_submode">Centre Submode*</span></li>
+                        <li><kbd>v</kbd>: <span id="ks_shading">Shading*</span></li>
+                        <li><kbd>Shift</kbd>: <span id="ks_temp_corner">For Temporary Corner Submode</span></li>
+                        <li><kbd>Shift</kbd> + <kbd>Delete</kbd>: <span id="ks_delete_corner">Deletes only corner pencil marks from the selected cells</span></li>
+                        <li><kbd>Ctrl</kbd>: <span id="ks_temp_centre">For Temporary Centre Submode / Selecting Multiple Cells/ Deselecting selected cells</span></li>
+                        <li><kbd>Ctrl</kbd> + <kbd>Delete</kbd>: <span id="ks_delete_centre">Deletes only centre pencil marks from the selected cells</span></li>
+                        <li><kbd>Delete</kbd>: <span id="ks_delete_all_contents">To delete all the contents of the cell</span></li>
+                        <li><kbd>Space</kbd>: <span id="ks_delete_submode_contents">To delete only the selected submode contents. (E.g. If the cell contains both centre and corner pencil marks, and if the current submode selection is "Corner submode", the pressing Spacebar would delete only the corner pencil marks)</span></li>
+                        <li><kbd>Double click</kbd>: <span id="ks_double_click">Double clicking the number in a cell will select all instances of that number. (applies to number mode as well)</span></li>
                     </ul>
-                    <p class="modal-footnote">* These can be disabled from Settings.</p>
-                    <h5 class="modal-subheader">In Surface Mode</h5>
-                    <p>Use number keys <kbd>0</kbd> - <kbd>9</kbd> to quickly switch between styles. For styles 11 and 12, press <kbd>1</kbd> and the second digit in quick succession.</p>
+                    <p class="modal-footnote" id="ks_footnote">* These can be disabled from Settings.</p>
+                    <h5 class="modal-subheader" id="ks_surface_mode_title">In Surface Mode</h5>
+                    <p id="ks_surface_desc">Use number keys <kbd>0</kbd> - <kbd>9</kbd> to quickly switch between styles. For styles 11 and 12, press <kbd>1</kbd> and the second digit in quick succession.</p>
                 </div>
             </div>
         </div>
