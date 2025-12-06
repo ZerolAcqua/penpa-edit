@@ -1,522 +1,540 @@
 # penpa-editor
 
-Universal pencil puzzle editor capable of drawing many different kinds of pencil puzzles. You can also solve problems in the software.
+> **Fork 说明 / Fork Notice**  
+> 本仓库是 [原版 Penpa+](https://github.com/swaroopg92/penpa-edit) 的分支版本，在原有功能基础上新增了完整的中文本地化支持。  
+> This is a fork of the [original Penpa+](https://github.com/swaroopg92/penpa-edit) with complete Chinese localization support.  
+> 
+> **致谢 / Acknowledgment**  
+> 感谢 [@dodomos](https://github.com/dodomos) 提供的大部分中文翻译工作。  
+> Thanks to [@dodomos](https://github.com/dodomos) for providing most of the Chinese translations.  
+> 
+> **问题反馈 / Issues**  
+> 针对此分支版本的问题反馈，请通过本仓库的 Issues 提出。  
+> For issues specific to this fork, please submit them through this repository's Issues.
+> 
+> **翻译说明 / Translation Note**  
+> 本 README 文档的中文翻译由AI辅助完成，如有翻译不准确之处，请通过 Issues 反馈。  
+> The Chinese translation of this README is AI-assisted. Please report any translation inaccuracies via Issues.
 
-You can save images and text in the form of URLs that can be loaded in a browser.
+---
 
-If the message “Invalid address” is displayed on a supported browser, try clearing the cache.
+通用铅笔谜题编辑器，能够绘制多种不同类型的铅笔谜题。您也可以在软件中解决问题。
 
-Depending on the browser you can update the page without using the cache with <kbd>Ctrl</kbd> + <kbd>R</kbd>, <kbd>Ctrl</kbd> + <kbd>F5</kbd>, <kbd>Shift</kbd> + <kbd>F5</kbd>, etc.
+您可以保存图像和文本形式的URL，可以在浏览器中加载。
 
-## Referencing and citing content
-You can now cite this in your research and publications using:
+如果在支持的浏览器上显示"无效地址"消息，请尝试清除缓存。
+
+根据浏览器的不同，您可以使用 <kbd>Ctrl</kbd> + <kbd>R</kbd>、<kbd>Ctrl</kbd> + <kbd>F5</kbd>、<kbd>Shift</kbd> + <kbd>F5</kbd> 等方式更新页面而不使用缓存。
+
+## 引用和引证内容
+您现在可以在研究和出版物中引用此内容：
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6615242.svg)](https://doi.org/10.5281/zenodo.6615242)
 
-## Sample Preview of the possibilities of this tool
-![Sample of Objects](./images/sample1.png "Sample of Options")
+## 工具功能预览示例
+![对象示例](./images/sample1.png "选项示例")
 
-## Compatible browsers
+## 兼容浏览器
 * Google Chrome
 * Safari
 * Firefox
 * Microsoft Edge
 
-## Shortcut keys
-* Ctrl + z: Undo
-* Ctrl + y: Redo
-* Ctrl + d: Clone
-* Ctrl + i: To copy the previous number/alphabet/symbol from Number mode with PANEL: ON
-* Ctrl + space: Delete numbers and symbols at the same time
-* Shift + space: Enter a space (Works in "Number" Mode => "L", "M", "S" and Long" SubMode options only)
-* Ctrl + a: Select all cells
-* Alt + drag: Press alt key and then drag mouse to draw rectangular regions. This feature is enabled in Surface, Multicolor, Number and Sudoku modes.
-* F2: Problem mode
-* F3: Solution mode
-* F4: Hide/Show Timer
-* TAB/ENTER: checkout the TAB section below in "Current functions". Tab settings are now retained in the shared URL.
-* ESC: To clear selection or exit open dialogues.
-* ?: To display keyboard shortcuts. You may need to press SHIFT + "/?" to access "?" in some keyboards.
-* Double click: In number or sudoku mode, double clicking the number in a cell will select all instances of that number.
-* In Sudoku Mode
-	* Z : Normal Submode
-	* X : Corner Submode
-	* C : Centre Submode
-	* V : Shading
-	* SHIFT : For Temporary Corner Submode
-	* SHIFT + DEL : Deletes only corner pencil marks from the selected cells
-	* CTRL - For Temporary Centre Submode / Selecting Multiple Cells/ Deselecting selected cells
-	* CTRL + DEL : Deletes only centre pencil marks from the selected cells
-	* DEL : To delete all the contents of the cell
-	* SPACEBAR : To delete only the selected submode contents. (E.g. If the cell contains both centre and corner pencil marks, and if the current submode selection is "Corner submode", the pressing Spacebar would delete only the corner pencil marks)
-	* Drag the mouse pressing left click / drag your finger holding down on Mobile or Ipad for multiple cell selection
-	* Border: ON - will allow you to write digits on the edges
-* In Surface Mode
-	* Use number keys to quickly switch between styles. For styles 11 and 12, press 1 and the second digit in quick succession.
-* In Multicolor Mode
-	* Use number keys to fill colors in the selected cells. For styles 11 and 12, press ALT+1 or ALT+2, respectively.
+## 快捷键
+* Ctrl + z: 撤销
+* Ctrl + y: 重做
+* Ctrl + d: 克隆
+* Ctrl + i: 从开启面板的数字模式中复制上一个数字/字母/符号
+* Ctrl + space: 同时删除数字和符号
+* Shift + space: 输入空格（仅在"数字"模式 => "L"、"M"、"S"和"长"子模式选项中有效）
+* Ctrl + a: 选择所有单元格
+* Alt + 拖拽: 按住alt键然后拖拽鼠标绘制矩形区域。此功能在表面、多色、数字和数独模式中启用。
+* F2: 谜题模式
+* F3: 解答模式
+* F4: 隐藏/显示计时器
+* TAB/ENTER: 查看下面"当前功能"中的TAB部分。Tab设置现在会保留在共享URL中。
+* ESC: 清除选择或退出打开的对话框。
+* ?: 显示键盘快捷键。在某些键盘上可能需要按 SHIFT + "/?" 才能访问 "?"。
+* 双击: 在数字或数独模式下，双击单元格中的数字将选择该数字的所有实例。
+* 数独模式下
+	* Z : 常规子模式
+	* X : 角落子模式
+	* C : 中心子模式
+	* V : 着色
+	* SHIFT : 临时角落子模式
+	* SHIFT + DEL : 仅删除所选单元格的角落铅笔标记
+	* CTRL : 临时中心子模式 / 选择多个单元格 / 取消选择已选单元格
+	* CTRL + DEL : 仅删除所选单元格的中心铅笔标记
+	* DEL : 删除单元格的所有内容
+	* SPACEBAR : 仅删除所选子模式的内容。（例如：如果单元格同时包含中心和角落铅笔标记，而当前子模式选择是"角落子模式"，则按空格键只会删除角落铅笔标记）
+	* 按住左键拖拽鼠标 / 在移动设备或iPad上按住手指拖拽进行多单元格选择
+	* 边框: 开启 - 允许您在边缘上书写数字
+* 涂色模式下
+	* 使用数字键快速切换样式。对于样式11和12，请快速连续按1和第二个数字。
+* 多色模式下
+	* 使用数字键在所选单元格中填充颜色。对于样式11和12，分别按ALT+1或ALT+2。
 
-## Tips
-* Numbers: Back Space can be entered on the panel "1" tab and half-width space can be entered on the "A" tab.
-* Number -> Arrow: Enter an arrow in the direction you dragged the square.
-* Symbol: Input with the numeric keys 1-9,0. When the panel is turned on, a list of symbols that can be entered is displayed, and it corresponds to 1, 2, ... from the upper left. To use the panel place the cursor on the panel symbol and click the board. Erase with two clicks.
-* Some symbols such as symbol> figure> cross are onoff input formats. Click the panel to enter directly. Special example: Digital (frame) with the same key. If you press it twice, only the frame will be displayed.
-* Special: Delete by clicking the first square of the entered symbol.
-* Special: The tip position can be returned to the front by returning to the path that was used during input.
-* V: Visibility Button. Users can now choose if they dont want the solution visible in the "Problem" mode. Default is "ON". In "Solution" mode everything will be visible.
-* Draw on Edges: Turning on this button will allow users to place the objects (shapes, numbers) on the edges/corners of the grid.
-* Panel: Turning on this button will popup a panel box useful for Number/Sudoku/Shape Modes.
-* Constraints (Beta): This feature is to aid puzzle constructors to find certain elements quickly for well known puzzle types. It is currently supported for square grid type. [Note - I will frequently add new types and expand the support to other grid types but if you have a certain genre in mind, you can send a request to penpaplus@gmail.com or contact via other options available through "Help" information button on the top right]
+## 使用技巧
+* 数字：可以在面板"1"选项卡上输入退格，在"A"选项卡上输入半角空格。
+* 数字 -> 箭头：按拖拽方块的方向输入箭头。
+* 符号：使用数字键1-9,0输入。当面板打开时，会显示可输入符号的列表，从左上角开始对应1、2、...。要使用面板，将光标放在面板符号上并点击棋盘。双击删除。
+* 一些符号，如符号>图形>十字是开关输入格式。点击面板直接输入。特殊示例：数字（框架）使用相同键。如果按两次，只会显示框架。
+* 特殊：通过点击输入符号的第一个方块来删除。
+* 特殊：可以通过返回输入时使用的路径将尖端位置返回到前面。
+* V：可见性按钮。用户现在可以选择是否希望在"谜题"模式下看到解答。默认为"开启"。在"解答"模式下，所有内容都将可见。
+* 沿边缘绘制：打开此按钮将允许用户在网格的边缘/角落放置对象（形状、数字）。
+* 面板：打开此按钮将弹出一个对数字/数独/形状模式有用的面板框。
+* 约束（测试版）：此功能旨在帮助谜题构造者快速找到已知谜题类型的某些元素。目前支持方格网格类型。[注意 - 我会经常添加新类型并扩展对其他网格类型的支持，但如果您有特定的类型需求，可以发送请求到 penpaplus@gmail.com 或通过右上角"帮助"信息按钮提供的其他选项联系]
 
-## Current functions
+## 当前功能
 
-### Board types
-* Square
-	* Rows: Row size, Number of rows in your puzzle
-	* Columns: Column size, Number of columns in your puzzle
-	* White Space:
-		* Over: Number of empty rows from the top. They are removed from the Row Size.
-		* Under: Number of empty rows from the bottom. They are removed from the Row Size.
-		* Left: Number of empty columns from the left. They are removed from the Column Size.
-		* Right: Number of empty columns from the right. They are removed from the Column Size.
-	* Example: If you want grid size of 9x9 and 3 empty rows and columns on either side. Then you need to set Rows - 15, Columns - 15, Over - 3, Under - 3, Left - 3, Right -3
-* Sudoku
-	* Diagonal \
-	* Diagonal /
-	* Outside clues (For extra row and column around the Sudoku)
-	* Outside clues  (top/left)
-	* Sizes 4x4, 6x6, 8x8, 9x9 (default)
-* Hexagon
-	* Side
-	* White Space: Side (Note - White space is subtracted from the Side Size)
-* Triangle
-	* Side
-	* White Space: Border
-* Pyramid
-	* Side
-	* White Space: Border
-* Cube
-	* Side
-* Kakuro
-	* Rows
-	* Columns
-* Tetrakis Square
-	* Side
-* Truncated Square
-	* Side
-* Snub Square
-	* Side
-* Cairo Pentagonal
-	* Side
-* Rhombitrihexagonal
-	* Side
-* Deltoidal Trihexagonal
-	* Side
-* Penrose P3
-	* Order
-	* Side
-	* Rotational asymmetry
-	* Tiling seed
+### 棋盘类型
+* 方格
+	* 行：行大小，谜题中的行数
+	* 列：列大小，谜题中的列数
+	* 空白区域：
+		* 上：从顶部开始的空行数。它们从行大小中移除。
+		* 下：从底部开始的空行数。它们从行大小中移除。
+		* 左：从左侧开始的空列数。它们从列大小中移除。
+		* 右：从右侧开始的空列数。它们从列大小中移除。
+	* 示例：如果您想要9x9的网格大小，两边各有3个空行和空列。那么您需要设置行-15，列-15，上-3，下-3，左-3，右-3
+* 数独
+	* 对角线 \
+	* 对角线 /
+	* 外部线索（数独周围的额外行和列）
+	* 外部线索（仅顶部/左侧）
+	* 大小 4x4, 6x6, 8x8, 9x9（默认）
+* 六角形
+	* 边长
+	* 空白区域：边长（注意 - 空白区域从边长中减去）
+* 三角形
+	* 边长
+	* 空白区域：边框
+* 金字塔
+	* 边长
+	* 空白区域：边框
+* 立方体
+	* 边长
+* 数字交叉
+	* 行
+	* 列
+* 四角方格
+	* 边长
+* 截角方格
+	* 边长
+* 扭棱方格
+	* 边长
+* 开罗五角形
+	* 边长
+* 大斜方截半六边形
+	* 边长
+* 鸢形截半六边形
+	* 边长
+* 彭罗斯 P3
+	* 阶数
+	* 边长
+	* 旋转不对称性
+	* 平铺种子
 
-### Modes
+### 模式
 
-#### Surface
-* Fill cells. Select a color by style. (Nurikabe, Iceburn, Shakashaka etc.)
-* In Dark grey mode only, click twice to get a green square.
-* Light grey is used when hiding grey letters and symbols.
-* Irrespective of any Style selected, Right click to enter the green square. This feature is to provide a quick access to secondary color (default is green). For more options on the secondary color, go to Settings -> Surface Second Color.
+#### 表面
+* 填充单元格。按样式选择颜色。（黑白棋、冰火、Shakashaka等）
+* 仅在深灰模式下，双击可获得绿色方块。
+* 浅灰色用于隐藏灰色字母和符号。
+* 无论选择何种样式，右键单击都可进入绿色方块。此功能提供对辅助颜色（默认为绿色）的快速访问。有关辅助颜色的更多选项，请转到设置 -> 表面辅助颜色。
 
-#### Multicolor
-* This mode allows multiple colors in the same cell.
-* Select the empty cells and then color to add it.
-* Select the filled cells. If new color, then it will add on top of existing color. If same color, it will remove it.
+#### 多色
+* 此模式允许在同一单元格中使用多种颜色。
+* 选择空单元格，然后选择颜色以添加它。
+* 选择已填充的单元格。如果是新颜色，则会添加到现有颜色之上。如果是相同颜色，则会将其移除。
 
-#### Line
-* Normal: A line connecting the center of the square to the horizontal and vertical. (Masyu, Hashi, Palindrome Sudoku, etc.)
-* Diagonal: A line connecting the centers of two diagonally adjacent squares. (Zigzag etc.)
-* Free: A line that connects arbitrary squares. (Night tour etc.)
-* Middle: A line connecting the center of the square and the center of the side.
-* Helper (x): An auxiliary cross mark placed on the side.
-* Select the color and thickness of the line by style.
+#### 线
+* 常规：连接方块中心到水平和垂直方向的线。（真珠、桥梁、回文数独等）
+* 对角线：连接两个对角相邻方块中心的线。（锯齿等）
+* 自由：连接任意方块的线。（骑士巡游等）
+* 中间：连接方块中心和边的中心的线。
+* 辅助（x）：放置在边上的辅助十字标记。
+* 通过样式选择线的颜色和粗细。
 
-#### Edge
-* Normal: A line that connects two horizontal or vertical vertices of a square. (Heyawake, Slitherlink etc.)
-* Diagonal line: A line connecting two diagonal vertices of a square. (Diagonal Sudoku etc.)
-* Free line: A line that connects the vertices of any square. (Sharp and blunt loop etc.)
-* Helper (x): An auxiliary cross mark placed on the side.
-* Erase: Delete the border of the board.
-* Select the color and thickness of the line by style.
+#### 边
+* 常规：连接方块的两个水平或垂直顶点的线。（黑白分割、环形等）
+* 对角线：连接方块的两个对角顶点的线。（对角数独等）
+* 自由线：连接任意方块顶点的线。（尖锐和钝角环形等）
+* 辅助（x）：放置在边上的辅助十字标记。
+* 擦除：删除棋盘的边框。
+* 通过样式选择线的颜色和粗细。
 
-#### Wall
-* A vertical or horizontal line drawn inside the square. (Slalom etc.)
-* Select the color and thickness of the line by style.
+#### 墙
+* 在方块内部绘制的垂直或水平线。（回转等）
+* 通过样式选择线的颜色和粗细。
 
-#### Number
-* You can select multiple cells at the same time.
-	* Drag the mouse on the cells by holding Left Click
-	* Drag the finger on mobile/ipad
-	* You can also use keyboard Arrow Keys to move around
-	* CTRL/SHIFT key to do multiple selection of cells (Useful if you need to select distinct/far apart cells)
-	* ALT + drag for rectangular selection
-* Normal: Enter numbers, alphabets, and some symbol characters from the keyboard. Some other special symbols are allowed through Panel: ON mode. It also allows custom symbols in the "text" tab (checkout next section for more details)
-* L, M, S: Large, medium or small size numbers.
-* Candidates: Candidate numbers for Latin Square such as Sudoku. Compatible with 1-9. onoff input.
-* Corners: Small characters at the four corners. (Kakuro, Hairyrin etc.)
-* Sides: Small characters at the middle of the four sides. (Compass etc.)
-* Tapa/Quad: Characters for Tapa. Up to 4 characters. For Sudoku grids it can be used for Quadruple clues (To activate - set the style to any with background circle, draw on edges: ON, and place the clue on the corners of the grid)
-* Arrow: Characters with arrows. Click and hold the mouse and move in the direction of the arrow to draw the arrow. (Yajilin, Castle Wall etc.)
-* Long: Long sentence. It is possible to create a list such as seekers.
-* Killer: Small characters at the top left corner. (Killer Sudou)
-* White, black and red circles have a circle on the back of the numbers.
-* White BG: Draw a white circle behind the numbers. Useful when you can't see the numbers because they are hidden behind the lines.
-* When the BORDER input is turned on, the character is placed on the side/vertex.
+#### 数字
+* 您可以同时选择多个单元格。
+	* 按住左键拖拽鼠标在单元格上
+	* 在移动设备/iPad上用手指拖拽
+	* 您也可以使用键盘箭头键移动
+	* 按CTRL/SHIFT键进行多选单元格（在需要选择不相邻/相距较远的单元格时很有用）
+	* ALT + 拖拽进行矩形选择
+* 常规：从键盘输入数字、字母和一些符号字符。通过面板：开启模式允许其他特殊符号。它还允许在"文本"选项卡中使用自定义符号（查看下一节了解更多详情）
+* L、M、S：大、中或小尺寸数字。
+* 候选：拉丁方块（如数独）的候选数字。兼容1-9。开关输入。
+* 角落：四个角落的小字符。（数字交叉、毛线等）
+* 边：四边中间的小字符。（指南针等）
+* Tapa/四分：Tapa的字符。最多4个字符。对于数独网格，可用于四重线索（激活 - 将样式设置为带背景圆圈的任何样式，沿边缘绘制：开启，并将线索放置在网格角落）
+* 箭头：带箭头的字符。点击并按住鼠标，朝箭头方向移动来绘制箭头。（雅拍林、城墙等）
+* 长文：长句子。可以创建如寻找者等列表。
+* 杀手：左上角的小字符。（杀手数独）
+* 白色、黑色和红色圆圈在数字后面有一个圆圈。
+* 白色背景：在数字后面绘制白色圆圈。当数字被线条隐藏而看不见时很有用。
+* 当边框输入打开时，字符被放置在边/顶点上。
 
-##### Any Unicode Symbol
-* Select "Number" mode.
-* Then select "Long" or "L" or "M" submode. (Preferrable is Long submode, although it should also work in some other Number submodes (i.e. corner, side, arrow, S)).
-* Panel: ON.
-* Select "Text" tab in the Panel.
-* One can copy unicode symbol (supports most (not all) of them although rendering might be different based on browser) from the websites https://symbl.cc/en/ or https://www.alt-codes.net/ and paste in the textbox available. (You can click on the symbol/shape in the website, it will allow copying). Based on experience, unicode from https://charbase.com/block has a better chance of getting rendered on different devices as compared to other unicode websites.
-* Then click "Insert".
-* One can also type in the sentence of words and "Insert".
-* Clear button to clear the text area.
+##### 任何Unicode符号
+* 选择"数字"模式。
+* 然后选择"长文"或"L"或"M"子模式。（推荐长文子模式，虽然在其他一些数字子模式中也应该可以工作（即角落、边、箭头、S））
+* 面板：开启。
+* 在面板中选择"文本"选项卡。
+* 可以从网站 https://symbl.cc/en/ 或 https://www.alt-codes.net/ 复制Unicode符号（支持大部分（不是全部），尽管渲染效果可能因浏览器而异）并粘贴到可用的文本框中。（您可以点击网站中的符号/形状，它将允许复制）。根据经验，来自 https://charbase.com/block 的Unicode与其他Unicode网站相比，在不同设备上有更好的渲染机会。
+* 然后点击"插入"。
+* 还可以输入句子或单词并"插入"。
+* 清除按钮可清除文本区域。
 
-#### Shape
-* Numerous symbols. You can browse the symbols that can be entered by opening the panel. Figures such as 〇 and □, inequality signs, digital numbers, and other symbols unique to puzzles.
-* Depending on the style, you can select whether to place the figure on the front side or the back side of the line.
-* When the BORDER input is turned ON, the character is placed on the side/vertex.
+#### 形状
+* 众多符号。您可以通过打开面板来浏览可以输入的符号。如〇和□等图形、不等号、数字字符和其他谜题独有的符号。
+* 根据样式，您可以选择将图形放置在线条的前面还是后面。
+* 当边框输入打开时，字符被放置在边/顶点上。
 
-#### Special
-* A special symbol that spans multiple squares. (Arrow Sudoku, Thermo Sudoku, moving arrows, square area)
-* Click the first cell you entered to erase it.
-* Polygon: The vertices are selected in the order in which they are clicked. Click the last clicked vertex or the first clicked vertex again to end selection.
+#### 特殊
+* 跨越多个方块的特殊符号。（箭头数独、温度计数独、移动箭头、方形区域）
+* 点击您输入的第一个单元格来擦除它。
+* 多边形：按点击顺序选择顶点。再次点击最后点击的顶点或第一个点击的顶点以结束选择。
 
-#### Cage
-* A line that surrounds multiple squares. (Killer Sudoku etc.)
-* Killer submode - Automatic drawing of cages. Click and drag to draw the cage. Click on any cell inside the cage to delete it. Overlapping of cages is not allowed using this automatic mode. You may want to use the Free submode to do that.
-* Free submode - Complete control over to the user to draw the cages.
-* There are 4 styles: black dotted line, black solid line, grey dotted line, and grey solid line.
-* Available in square and regular hexagon.
+#### 栅栏
+* 围绕多个方块的线条。（杀手数独等）
+* 杀手子模式 - 自动绘制栅栏。点击并拖拽来绘制栅栏。点击栅栏内的任何单元格来删除它。使用此自动模式不允许栅栏重叠。您可能需要使用自由子模式来实现重叠。
+* 自由子模式 - 完全控制用户绘制栅栏。
+* 有4种样式：黑色虚线、黑色实线、灰色虚线和灰色实线。
+* 适用于方形和正六边形。
 
-#### Box
-* Click to remove or add the square that draws the frame of the board. Useful for irregular board shapes.
+#### 边框
+* 点击来删除或添加绘制棋盘框架的方块。对于不规则棋盘形状很有用。
 
-#### Tab
-* This is tab selector button.
-* User can now select which modes/sub-modes they wan't to rotate when pressing TAB/Enter key.
-	* There is search option available.
-	* Search is case-insensitive.
-* Then you can either press Tab or Enter (closer to the numpad) to rotate between the selected modes.
-* SHIFT + Tab, SHIFT + Enter will rotate between the selected modes in the backward direction.
-* To clear all selections - Click twice on Select All (It changes to Clear ALL on first click).
-* Enable PenpaLite: Turning on this button will remove all the non-preferred modes from the display thereby simplfiying the display. The preferred modes are determined through tab setting. Select your preferrable modes under "Tab/↵" and then turn "ON" PenpaLite.
+#### 选项卡
+* 这是选项卡选择按钮。
+* 用户现在可以选择按TAB/回车键时要轮换的模式/子模式。
+	* 提供搜索选项。
+	* 搜索不区分大小写。
+* 然后您可以按Tab或回车键（靠近数字小键盘）在选定的模式之间轮换。
+* SHIFT + Tab，SHIFT + 回车键将反向在选定的模式之间轮换。
+* 清除所有选择 - 双击"全选"（第一次点击时变为"全清"）。
+* 启用PenpaLite：打开此按钮将从显示中删除所有非首选模式，从而简化显示。首选模式通过选项卡设置确定。在"Tab/↵"下选择您的首选模式，然后"打开"PenpaLite。
 
-#### Move
-* You can move numbers and symbols by dragging. Originally, you cannot move to a square with a number or sign.
-* All can be set to move both numbers and symbols, or either numbers or symbols.
+#### 移动
+* 您可以通过拖拽来移动数字和符号。原本，您不能移动到有数字或符号的方块。
+* 全部可以设置为移动数字和符号，或只移动数字或符号。
 
-#### Composite
-* Ability to use multiple input methods simultaneously.
-* Paint:
-	* Black / dot: Left 1 click - Black Square, Left 2 click - dot, Right 1 click - dot, Right 2 click - Black Square, Click and drag for multiple squares or dots
-	* Yin - Yang: Left 1 click - white circle, Left 2 click - black circle, Right 1 click - black circle, Right 2 click - white circle, Click and drag for multiple squares or dots
-	* Shakashaka: Pull the triangle to input, left click for dot
-* Loop:
-	* Line x: Line and auxiliary x (Castle wall) - Right Click for cross and Left Click for Line. Right click and drag for multiple crosses in one go.
-	* Line OX: Left 1 click - circle, Left click and drag - Line, Left 2 click - X, Right 1 click - X, Right 2 click - Circle.
-	* Line x<>: This is useful for directed loop puzzles. Left click and drag for the loop. Right click on edges for auxiliary marks (x, <, >). Right click and drag for multiple cross in one go. Right click on the center of the cell and drag to place a directed arrow on the edge.
-	* Edge x: Edge and auxiliary cross marks (x) on edges. Right click for x. Right click and drag for multiple crosses in one go.
-	* Edge IO: Edge, auxiliary x, and inside/outside painted yellow and green. ("Surface Second Color" preference can be used to change green.) (Slitherlink, Cave) - Right Click for cross and Left Click for Line
-	* Yajilin: Left mouse click - Black square, Left mouse click drag - green line, Right click - dot in center, cross (x) on edges
-	* Hashi: Draw the line again to make a double line
-	* RassiSilai: Left mouse click - grey circle, Left mouse click drag - green line, Right click - Yellow square
-* Area / Field:
-	* Edge/Aux line: An auxiliary line that represents the connection between the edge and the square
-* Object:
-	* Battleships: Left click will rotate between circle, square, dot and water. Drag in a direction for that directional ship segment. Right click and drag - multiple water. Once you have a single dot, you can left click and drag to multiple cells. Once you have a water, you can left click and drag to multiple cells as well.
-	* Star Battle: Left click - star, Right click - X, Right click and drag - Multiple X's, Right click on edges or corners for green dot.
-	* Tent: A tent and a point, an auxiliary x on the side, and a line that connects the tent and a tree - Right click for cross and left click for tent and a point, drag for the line.
-	* Magnets: +, - and black square
-	* Minesweeper: Left click - mine, Right click - X, Right click and drag - Multiple X's, Right click on edges or corners for green dot.
-	* Akari: Left mouse click - Light bulb, Left mouse click drag - dotted black line, Right click - dot in center, cross (x) on edges
-	* Arrows: Left click drag to draw an arrow in one of the eight directions in a square.
-	* DoubleMines: Left click once - 1 mine, Left click twice - 2 mines, Right click - X, Right click and drag - Multiple X's, Right click on edges or corners for green dot.
-* Number logic:
-	* Numerical flick: Input the numerical flick. 123456789 from top left to bottom right.
-	* Alphabet flick: Enter the alphabet by flick. ABCDEFGH- from top left to bottom right. Enter '-' in the lower right corner.
+#### 复合
+* 能够同时使用多种输入方法。
+* 绘制：
+	* 黑/点：左键单击1次 - 黑色方块，左键单击2次 - 点，右键单击1次 - 点，右键单击2次 - 黑色方块，点击并拖拽多个方块或点
+	* 阴阳：左键单击1次 - 白色圆圈，左键单击2次 - 黑色圆圈，右键单击1次 - 黑色圆圈，右键单击2次 - 白色圆圈，点击并拖拽多个方块或点
+	* Shakashaka：拉动三角形输入，左键点击为点
+* 循环：
+	* 线 x：线和辅助x（城墙） - 右键点击为叉，左键点击为线。右键点击并拖拽一次性绘制多个叉。
+	* 线 OX：左键单击1次 - 圆圈，左键点击并拖拽 - 线，左键单击2次 - X，右键单击1次 - X，右键单击2次 - 圆圈。
+	* 线 x<>：这对有向循环谜题很有用。左键点击并拖拽画循环。右键点击边缘放置辅助标记（x，<，>）。右键点击并拖拽一次性绘制多个叉。右键点击单元格中心并拖拽在边缘放置有向箭头。
+	* 边 x：边缘和辅助叉标记（x）。右键点击为x。右键点击并拖拽一次性绘制多个叉。
+	* 边 IO：边缘、辅助x，以及内部/外部涂黄色和绿色。（可以使用"表面第二颜色"偏好来改变绿色。）（环路、洞穴） - 右键点击为叉，左键点击为线
+	* Yajilin：左键点击 - 黑色方块，左键点击拖拽 - 绿色线，右键点击 - 中心点，边缘叉（x）
+	* Hashi：再次绘制线来制作双线
+	* RassiSilai：左键点击 - 灰色圆圈，左键点击拖拽 - 绿色线，右键点击 - 黄色方块
+* 区域/字段：
+	* 边/辅助线：表示边缘和方块之间连接的辅助线
+* 对象：
+	* 战舰：左键点击将在圆圈、方块、点和水之间轮换。朝方向拖拽该方向的船只部分。右键点击并拖拽 - 多个水。一旦有单个点，可以左键点击并拖拽到多个单元格。一旦有水，也可以左键点击并拖拽到多个单元格。
+	* 星之战斗：左键点击 - 星，右键点击 - X，右键点击并拖拽 - 多个X，右键点击边缘或角落为绿色点。
+	* 帐篷：帐篷和一个点，侧面的辅助x，以及连接帐篷和树的线 - 右键点击为叉，左键点击为帐篷和点，拖拽绘制线。
+	* 磁铁：+、-和黑色方块
+	* 扫雷：左键点击 - 地雷，右键点击 - X，右键点击并拖拽 - 多个X，右键点击边缘或角落为绿色点。
+	* Akari：左键点击 - 灯泡，左键点击拖拽 - 黑色虚线，右键点击 - 中心点，边缘叉（x）
+	* 箭头：左键点击拖拽在方块中八个方向之一绘制箭头。
+	* 双地雷：左键点击一次 - 1个地雷，左键点击两次 - 2个地雷，右键点击 - X，右键点击并拖拽 - 多个X，右键点击边缘或角落为绿色点。
+* 数字逻辑：
+	* 数字轻弹：输入数字轻弹。从左上到右下123456789。
+	* 字母轻弹：通过轻弹输入字母。从左上到右下ABCDEFGH-。在右下角输入'-'。
 
-#### Sudoku
-* This mode is for Sudoku Solving (It can be used for Creating as well but "Number" mode offers more flexibility for creations. Please checkout "Number" section for more details)
-* You can select multiple cells at the same time.
-	* Drag the mouse on the cells by holding Left Click
-	* Drag the finger on mobile/ipad
-	* You can also use keyboard Arrow Keys to move around
-	* CTRL/SHIFT key to do multiple selection of cells (Useful if you need to select distinct/far apart cells)
-	* ALT + drag for rectangular selection
-* Shortcuts to switch between sub-modes
-	* Z : Normal Submode - Normal sized numbers
-	* X : Corner Submode - Small digits placed on corners or sides of the cell
-	* C : Centre Submode - Small digits placed in the centre of the cell
-	* V : Shading - For coloring the cells (12 color choices)
-	* SHIFT : For Temporary Corner Submode
-	* SHIFT + DEL : Deletes only corner pencil marks from the selected cells
-	* CTRL - For Temporary Centre Submode / Selecting Multiple Cells/ Deselecting selected cells
-	* CTRL + DEL : Deletes only centre pencil marks from the selected cells
-	* DEL : To delete all the contents of the cell
-	* SPACEBAR : To delete only the selected submode contents. (E.g. If the cell contains both centre and corner pencil marks, and if the current submode selection is "Corner submode", the pressing Spacebar would delete only the corner pencil marks)
-	* Double click: IDouble clicking the number in a cell will select all instances of that number.
-* Draw on Edges: ON
-	* IF Draw on Edges is ON then you can write digits on the edges of the cells.
-* 6 Color choices for User Solving
-	* Answer check only looks for Green/Blue/Red color if enabled
-* Normal, Corner and Centre submodes are also available as part of Tab Selector. Please checkout "Tab selector" section for more details.
+#### 数独
+* 此模式用于数独解题（也可用于创建，但"数字"模式为创建提供更多灵活性。请查看"数字"部分了解更多详情）
+* 您可以同时选择多个单元格。
+	* 按住左键拖拽鼠标在单元格上
+	* 在移动设备/iPad上用手指拖拽
+	* 您也可以使用键盘箭头键移动
+	* 按CTRL/SHIFT键进行多选单元格（在需要选择不相邻/相距较远的单元格时很有用）
+	* ALT + 拖拽进行矩形选择
+* 切换子模式的快捷键
+	* Z：常规子模式 - 正常大小数字
+	* X：角落子模式 - 放置在单元格角落或边上的小数字
+	* C：中心子模式 - 放置在单元格中心的小数字
+	* V：阴影 - 给单元格着色（12种颜色选择）
+	* SHIFT：临时角落子模式
+	* SHIFT + DEL：仅删除所选单元格的角落铅笔标记
+	* CTRL：临时中心子模式/选择多个单元格/取消选择所选单元格
+	* CTRL + DEL：仅删除所选单元格的中心铅笔标记
+	* DEL：删除单元格的所有内容
+	* 空格键：仅删除所选子模式内容。（例如，如果单元格包含中心和角落铅笔标记，且当前子模式选择是"角落子模式"，按空格键将仅删除角落铅笔标记）
+	* 双击：双击单元格中的数字将选择该数字的所有实例。
+* 边缘绘制：开启
+	* 如果边缘绘制为开启，则可以在单元格边缘写数字。
+* 用户解题的6种颜色选择
+	* 如果启用，答案检查只查看绿色/蓝色/红色
+* 常规、角落和中心子模式也作为选项卡选择器的一部分可用。请查看"选项卡选择器"部分了解更多详情。
 
-### Grid Options
-* You can change the border of the board from the "New grid / Update" menu.
-* Display Size: To change the cell size of the grid.
-* Gridlines: The grid lines can be solid or dotted or none.
-* Gridpoints: Display vertex points on the grid.
-* Outside frame: Whether to draw a line around the board
-* White space: Used when placing numbers outside the grid on the board. (Sandwich puzzle etc.)
-* "New grid" button resets the board. The "Update display" button does not reset the board (i.e. it will keep all the puzzle elements you have entered so far), but updates only display size and frame type.
-* Example --> If you want a completely blank grid then set GridLines to None, Gridpoints to No, and Outside frame to No and click on "Update display".
+### 网格选项
+* 您可以从"新网格/更新"菜单更改棋盘边框。
+* 显示大小：更改网格的单元格大小。
+* 网格线：网格线可以是实线、虚线或无。
+* 网格点：在网格上显示顶点。
+* 外框：是否在棋盘周围画线
+* 空白区域：在棋盘上网格外放置数字时使用。（三明治谜题等）
+* "新网格"按钮重置棋盘。"更新显示"按钮不重置棋盘（即保留您迄今为止输入的所有谜题元素），但只更新显示大小和框架类型。
+* 示例 --> 如果您想要完全空白的网格，则将网格线设置为无，网格点设置为否，外框设置为否，然后点击"更新显示"。
 
-### Transform
-* You can rotate and flip the board or remove and add columns or rows from the "Rotate / Move / Add / Remove" menu. Square and pyramid rotate 90°. Regular hexagon and regular triangle rotate 30° on the board surface.
-* Adjust the margin of the board with the "Move board to center" and "Fit window to board" buttons.
-* After creating the grid, if you want to add additional rows and columns without resetting the board then you can these buttons:
-	* Note: This feature only works on Square grid type. Before removing a row/column ensure they are empty and contains no elements.
-	* Top +: Adds a row on the top of the grid
-	* Top -: Removes a row from the top of the grid
-	* Bottom +: Adds a row in the bottom of the grid
-	* Bottom -: Removes a row from the bottom of the grid
-	* Left +: Adds a column to the left of the grid
-	* Left -: Removes a column from the left of the grid
-	* Right +: Adds a column to the right of the grid
-	* Right -: Removes a column from the right of the grid
+### 变换
+* 您可以从"旋转/移动/添加/删除"菜单旋转和翻转棋盘或删除和添加列或行。方形和金字塔旋转90°。正六边形和正三角形在棋盘表面旋转30°。
+* 使用"将棋盘移至中心"和"窗口适应棋盘"按钮调整棋盘边距。
+* 创建网格后，如果您想在不重置棋盘的情况下添加额外的行和列，那么您可以使用这些按钮：
+	* 注意：此功能仅适用于方形网格类型。删除行/列前确保它们是空的且不包含任何元素。
+	* 顶部+：在网格顶部添加一行
+	* 顶部-：从网格顶部删除一行
+	* 底部+：在网格底部添加一行
+	* 底部-：从网格底部删除一行
+	* 左侧+：在网格左侧添加一列
+	* 左侧-：从网格左侧删除一列
+	* 右侧+：在网格右侧添加一列
+	* 右侧-：从网格右侧删除一列
 
-### Save image (Screenshot button)
-* Settings:
-1. White Border: Setting "No" will remove the extra white space around the grid.
-2. Image quality: The higher the quality, the better the image quality, but the larger the image size.
-3. File Type: Supported image types: PNG, JPG, SVG
-4. Title & Author: To include this information in the image, select Yes.
-5. Rules: To include this information in the image, select Yes.
-6. File name: Specify the image file name.
-* Options:
-1. Open in new window: Opens the image in a new TAB
-2. Download: .png/.jpg/.svg image will be downloaded
-3. Cancel: Close the window
+### 保存图像（截图按钮）
+* 设置：
+1. 白色边框：设置为"否"将删除网格周围的额外空白。
+2. 图像质量：质量越高，图像质量越好，但图像大小越大。
+3. 文件类型：支持的图像类型：PNG、JPG、SVG
+4. 标题和作者：要在图像中包含此信息，请选择是。
+5. 规则：要在图像中包含此信息，请选择是。
+6. 文件名：指定图像文件名。
+* 选项：
+1. 在新窗口中打开：在新选项卡中打开图像
+2. 下载：下载.png/.jpg/.svg图像
+3. 取消：关闭窗口
 
-### Share
-* Title - Describe the Puzzle Type (e.g. Classic Sudoku, Arrow Sudoku)
+### 分享
+* 标题 - 描述谜题类型（例如经典数独、箭头数独）
 
-* Author - Puzzle creator's name
+* 作者 - 谜题创作者姓名
 
-* Rules - Enter rules here
+* 规则 - 在此输入规则
 
-* Genre/Tags - Select specific tags that suit your puzzle. These tags will be used for smart answer checking features. The smart checking supports following tags (Under development):
-1. Classic Sudoku (9x9) [Square Grid]
-2. Consecutive Sudoku [Square Grid]
-3. Nonconsecutive Sudoku [Square Grid]
-4. Consecutive Pairs Sudoku [Square Grid]
-5. Star Battle [Square Grid]
-6. TomTom [Square Grid]
-7. Arrow/Thermo/Even/Odd/Killer (Only Classic Check, 9x9) [Square Grid]
-8. Latin Square [Hex Grid]
+* 类型/标签 - 选择适合您谜题的特定标签。这些标签将用于智能答案检查功能。智能检查支持以下标签（正在开发中）：
+1. 经典数独（9x9）[方形网格]
+2. 连续数独[方形网格]
+3. 非连续数独[方形网格]
+4. 连续对数独[方形网格]
+5. 星之战斗[方形网格]
+6. TomTom[方形网格]
+7. 箭头/温度计/偶数/奇数/杀手（仅经典检查，9x9）[方形网格]
+8. 拉丁方块[六边形网格]
 
-* Source - If you are not the author of the puzzle, specify the source URL
+* 来源 - 如果您不是谜题的作者，请指定来源URL
 
-* Save Undo/Redo (History) - If you checkmark this option, then your action history will be saved in the URL. This is effective only while using "URL for editing" button. Other options will automatically ignore history. Note: Saving history might make URL too big depending on your usage.
+* 保存撤销/重做（历史记录） - 如果您勾选此选项，那么您的操作历史将保存在URL中。这仅在使用"编辑URL"按钮时有效。其他选项将自动忽略历史记录。注意：保存历史记录可能会使URL过大，取决于您的使用情况。
 
-* Automatically Shorten with TinyURL - If you checkmark this option, the generated share link will be a shortened link.
+* 自动使用TinyURL缩短 - 如果您勾选此选项，生成的分享链接将是缩短的链接。
 
-* Editing URL
-1. Complete creating puzzle in Edit mode "Problem".
-2. If you need to save your puzzle creation progress and come back later to edit then click on this button.
-3. Then you can copy the URL generated or use URL_short button to shorten the generated URL. Look at the Options section below for more detailed description.
+* 编辑URL
+1. 在编辑模式"问题"中完成创建谜题。
+2. 如果您需要保存谜题创建进度并稍后返回编辑，请点击此按钮。
+3. 然后您可以复制生成的URL或使用URL_short按钮缩短生成的URL。查看下面的选项部分了解更详细的描述。
 
-* Solving URL
-1. Complete creating puzzle in Edit mode "Problem".
-2. If you want to share your puzzle for others to solve then click on this button.
-3. Then you can copy the URL generated or use URL_short button to shorten the generated URL. Look at the Options section below for more detailed description.
+* 解题URL
+1. 在编辑模式"问题"中完成创建谜题。
+2. 如果您想分享您的谜题供他人解题，请点击此按钮。
+3. 然后您可以复制生成的URL或使用URL_short按钮缩短生成的URL。查看下面的选项部分了解更详细的描述。
 
-* Clone URL
-1. This is to access the URL as text for the copy/duplicating the puzzle. This is a alternative to the CLONE button.
-2. If you need to save your puzzle creation/solving progress and come back later to edit/solve then click on this button.
-3. Then you can copy the URL generated or use URL_short button to shorten the generated URL. Look at the Options section below for more detailed description.
+* 克隆URL
+1. 这是将URL作为文本访问以复制/复制谜题。这是CLONE按钮的替代方法。
+2. 如果您需要保存谜题创建/解题进度并稍后返回编辑/解题，请点击此按钮。
+3. 然后您可以复制生成的URL或使用URL_short按钮缩短生成的URL。查看下面的选项部分了解更详细的描述。
 
-* URL with Answer Check / Advanced Options
-1. Complete creating puzzle in Edit mode "Problem".
-2. Select Edit mode "Solution" and complete the solution. The solution must be entered using certain shape or color which Penpa+ will detect. Check the following image for guidance:
-![Use the mentioned color/shape for implementing solution](./images/multisolution.PNG "Solution checking settings")
-3. If you want to share your puzzle for others to solve with the ability to verify the solution then click on "URL with answer check / Extra options" button. A new window will appear.
-	1. Please note that the solution will check only for a certain elements with a certain color and style.
-	2. The new window that appeared will show you all the possibilities. Select the relevant options. There are two choices:
-		1. "All constraints" column - Solution will check for all the selected elements.
-		2. "Any of the constraints" column - Solution will check if at least any one of the selected elements is completed.
-		3. If no option is selected, then it will check for all the elements.
-	3. You should enter the solution in Step 2 using one of the accepted color and style as shown in the window.
-4. Custom Message: Default answer validation message is "Congratulations". User can provide a custom congratulatory message in this textbox.
-5. Click on "Generate URL with answer check".
-6. Then you can copy the URL generated.
-7. You can verify if the solution check is enabled if "Solution Button" is green colored in Solver mode and a text "Automatic answer checking is enabled" is displayed.
+* 带答案检查的URL/高级选项
+1. 在编辑模式"问题"中完成创建谜题。
+2. 选择编辑模式"解答"并完成解答。解答必须使用Penpa+将检测到的某种形状或颜色输入。检查以下图像获取指导：
+![使用提到的颜色/形状来实现解答](./images/multisolution.PNG "解答检查设置")
+3. 如果您想分享您的谜题供他人解题并能够验证解答，请点击"带答案检查的URL/额外选项"按钮。将出现一个新窗口。
+	1. 请注意，解答将仅检查具有特定颜色和样式的某些元素。
+	2. 出现的新窗口将显示所有可能性。选择相关选项。有两个选择：
+		1. "所有约束"列 - 解答将检查所有选定的元素。
+		2. "任何约束"列 - 解答将检查是否至少完成了任何一个选定的元素。
+		3. 如果未选择任何选项，则将检查所有元素。
+	3. 您应该在步骤2中使用窗口中显示的接受颜色和样式之一输入解答。
+4. 自定义消息：默认答案验证消息是"恭喜"。用户可以在此文本框中提供自定义祝贺消息。
+5. 点击"生成带答案检查的URL"。
+6. 然后您可以复制生成的URL。
+7. 如果在解题模式中"解答按钮"是绿色的并显示文本"自动答案检查已启用"，您可以验证解答检查是否已启用。
 
-* Contest-Mode URL
-1. This is almost like URL for solving with following exceptions:
-	1. No Undo/Redo feature.
-	2. No I/O Sudoku Option.
-	3. No Share Option.
-	4. Some additional display information to help the solver.
-2. Useful for online contests (e.g. Logic Masters India - Puzzle Ramayan and Sudoku Mahabharat contests)
+* 竞赛模式URL
+1. 这几乎像解题URL，但有以下例外：
+	1. 没有撤销/重做功能。
+	2. 没有I/O数独选项。
+	3. 没有分享选项。
+	4. 一些额外的显示信息来帮助解题者。
+2. 对在线竞赛有用（例如Logic Masters India - Puzzle Ramayan和Sudoku Mahabharat竞赛）
 
-* Options
-1. Copy: copies the URL to the clipboard
-2. Download: downloads a .txt file with the url
-3. Open: opens a new TAB with the same url
-4. Shorten:
-	1. First create an URL using one of the four methods described above.
-	2. Click on "Shorten" (It will open a new TAB with TinyURL Website, URL is automatically copied to your clipboard).
-	3. Paste the URL (CTRL + V on windows).
-	4. Click "Shorten"
-	Note - User can use their own URL shortening services too, default is TinyURL.
-5. Close: Close the window
+* 选项
+1. 复制：将URL复制到剪贴板
+2. 下载：下载包含url的.txt文件
+3. 打开：使用相同url打开新选项卡
+4. 缩短：
+	1. 首先使用上述四种方法之一创建URL。
+	2. 点击"缩短"（它将打开一个新的TinyURL网站选项卡，URL自动复制到您的剪贴板）。
+	3. 粘贴URL（Windows上按CTRL + V）。
+	4. 点击"缩短"
+	注意 - 用户也可以使用自己的URL缩短服务，默认是TinyURL。
+5. 关闭：关闭窗口
 
-* URL with answer check / Advanced options (puzzle_output_file -> GMPuzzle output:)
-1. This allows user to generate a text file output that follows the submission formatting rules for GMPuzzles (https://tinyurl.com/GMPuzzlesFormatting).
-2. It currently supports (this list is frequently updated):
-	* Sudoku
-		* classicsudoku (cs)
-		* thermosudoku (ts)
-			* Special -> Thermo
-		* arrowsudoku (as)
-			* Special -> Sudoku Arrow
-		* evenoddsudoku (eos)
-			* [Panel: ON] Use Shape mode -> Shape/Circle submode (1st option in the dropdown) and Shape/Square submode (2nd option in the dropdown)
-		* consecutivepairssudoku (cps)
-			* [Panel: ON] Use Shape mode -> Shape/Circle submode -> XS size (1st option in the dropdown). Set BORDER: ON to put circles on edges.
-		* tightfitsudoku (tfs)
-			* (Panel: ON) For Slash/Split: Use Shape Mode -> Shape Submode -> "〇△◻x" from dropdown list -> 6th Shape in the Panel
-			* For numbers: Use "Corner" submode (6th option) to enter in top left or bottom right corner of the split cell, Normal submode for numbers in the cells without split
-		* killersudoku (ks)
-			* Given digits: Use Number -> Normal or Sudoku -> Normal in Problem mode
-			* Cages: Use Cage -> Killer in Problem mode
-			* Cage Clues: Use Number -> Killer in Problem mode
-			* Solution digits: Use Number -> Normal or Sudoku -> Normal in Solution mode
-			* [Alert] Cage definitions might need manual correction in the output file for puzzles with more than 26 cages
-	* Number Placement
-		* tomtom (tt)
-			* Use +, -, x, / from keyboard for mathematical operator
-			* For numbers: Number mode -> "Corner" submode (6th option)
-		* skyscrapers (ss)
-			* Ensure 1 white row/column on top/botton and left/right - e.g. If your puzzle is 7x7 size, then set the Rows = 9, Columns = 9, White Space: Over = 1, Under = 1, Left = 1, Right = 1 in the New Grid settings
+* 带答案检查的URL/高级选项（puzzle_output_file -> GMPuzzle输出：）
+1. 这允许用户生成遵循GMPuzzles提交格式规则的文本文件输出（https://tinyurl.com/GMPuzzlesFormatting）。
+2. 它目前支持（此列表经常更新）：
+	* 数独
+		* 经典数独（cs）
+		* 温度计数独（ts）
+			* 特殊 -> 温度计
+		* 箭头数独（as）
+			* 特殊 -> 数独箭头
+		* 偶奇数独（eos）
+			* [面板：开启] 使用形状模式 -> 形状/圆圈子模式（下拉列表中的第1个选项）和形状/方块子模式（下拉列表中的第2个选项）
+		* 连续对数独（cps）
+			* [面板：开启] 使用形状模式 -> 形状/圆圈子模式 -> XS大小（下拉列表中的第1个选项）。设置边框：开启以在边缘放置圆圈。
+		* 紧配数独（tfs）
+			* （面板：开启）对于斜线/分割：使用形状模式 -> 形状子模式 -> 从下拉列表选择"〇△◻x" -> 面板中的第6个形状
+			* 对于数字：使用"角落"子模式（第6个选项）在分割单元格的左上角或右下角输入，对于未分割的单元格中的数字使用常规子模式
+		* 杀手数独（ks）
+			* 给定数字：在问题模式中使用数字 -> 常规或数独 -> 常规
+			* 栅栏：在问题模式中使用栅栏 -> 杀手
+			* 栅栏线索：在问题模式中使用数字 -> 杀手
+			* 解答数字：在解答模式中使用数字 -> 常规或数独 -> 常规
+			* [警告] 对于超过26个栅栏的谜题，输出文件中的栅栏定义可能需要手动修正
+	* 数字放置
+		* tomtom（tt）
+			* 使用键盘上的+、-、x、/作为数学运算符
+			* 对于数字：数字模式 -> "角落"子模式（第6个选项）
+		* 摩天大楼（ss）
+			* 确保顶部/底部和左/右有1行/列空白 - 例如，如果您的谜题是7x7大小，那么在新网格设置中设置行 = 9，列 = 9，空白区域：上方 = 1，下方 = 1，左侧 = 1，右侧 = 1
 		* kakuro
-			* (Panel: ON) For Slash/Split: Use Shape Mode -> Special 1 Submode -> "kakuro" from dropdown list -> 1st and 2nd Shape in the Panel
-			* For numbers: Use "Corner" submode (6th option) and "W" style (white) to enter in top right or bottom left corner of the split cell, Normal submode for numbers in the cells without split (Green or Blue color)
-		* doublekakuro (dk)
-			* (Panel: ON) For Slash/Split: Use Shape Mode -> Special 1 Submode -> "kakuro" from dropdown list -> 1st and 2nd Shape in the Panel
-			* For numbers: Use "Corner" submode (6th option) and "W" style (white) to enter in top right or bottom left corner of the split cell, Normal submode for numbers in the cells without split (Green or Blue color)
-			* For 2x2 regions: Use Surface mode and shade the upper-left corner of a 2x2 region with grey color and remaining 3 cells with green color.
-			* Solution: Use Number mode --> Normal submode. Fill in all the white and grey shaded cells with appropriate numbers and ignore the green shaded cells. This is similar to as it's described in the document. They grey shaded cell contains the number that belongs to corresponding 2x2 region.
-	* Object Placement
-		* Statue Park (sp)
-			* [Panel: ON] Use Shape mode -> Shape/Circle submode
-		* minesweeper (ms)
-			* Use 1 to represent mine in the Solution
-		* doubleminesweeper (dms)
-			* Use 1 and 2 to represent mines in the Solution
-		* starbattle (sb)
-			* specify number of stars after puzzle type [e.g starbattle2 or starbattle3]
-			* use grey shading in solution mode for stars, it is assumed rows=columns as per GMPuzzles formatting
-		* battleships (bs)
-			* ensure 1 white row/column on bottom and right - e.g. If your puzzle is 10x10 size, then set the Rows = 11, Columns = 11, White Space: Over = 0, Under = 1, Left = 0, Right = 1 in the New Grid settings
-			* For numbers: use Normal submode
-			* (Panel: ON) For Shapes: use Shape Mode -> Specal 1 submode -> Battleship from dropdown list
-			* Unfortunately there is no good way to ask the fleet from user, this output will come with standard fleet, you need to manually modify the [# of types of ships] and [fleet description] if your puzzle has a different set
-	* Shading Puzzles
+			* （面板：开启）对于斜线/分割：使用形状模式 -> 特殊1子模式 -> 从下拉列表选择"kakuro" -> 面板中的第1和第2个形状
+			* 对于数字：使用"角落"子模式（第6个选项）和"W"样式（白色）在分割单元格的右上角或左下角输入，对于未分割单元格中的数字使用常规子模式（绿色或蓝色）
+		* 双kakuro（dk）
+			* （面板：开启）对于斜线/分割：使用形状模式 -> 特殊1子模式 -> 从下拉列表选择"kakuro" -> 面板中的第1和第2个形状
+			* 对于数字：使用"角落"子模式（第6个选项）和"W"样式（白色）在分割单元格的右上角或左下角输入，对于未分割单元格中的数字使用常规子模式（绿色或蓝色）
+			* 对于2x2区域：使用表面模式，用灰色阴影标记2x2区域的左上角，其余3个单元格用绿色
+			* 解答：使用数字模式 --> 常规子模式。在所有白色和灰色阴影单元格中填入适当的数字，忽略绿色阴影单元格。这与文档中描述的类似。灰色阴影单元格包含属于相应2x2区域的数字。
+	* 对象放置
+		* 雕像公园（sp）
+			* [面板：开启] 使用形状模式 -> 形状/圆圈子模式
+		* 扫雷（ms）
+			* 在解答中使用1表示地雷
+		* 双扫雷（dms）
+			* 在解答中使用1和2表示地雷
+		* 星之战斗（sb）
+			* 在谜题类型后指定星数[例如 starbattle2或starbattle3]
+			* 在解答模式中使用灰色阴影表示星，根据GMPuzzles格式假设行=列
+		* 战舰（bs）
+			* 确保底部和右侧有1行/列空白 - 例如，如果您的谜题是10x10大小，那么在新网格设置中设置行 = 11，列 = 11，空白区域：上方 = 0，下方 = 1，左侧 = 0，右侧 = 1
+			* 对于数字：使用常规子模式
+			* （面板：开启）对于形状：使用形状模式 -> 特殊1子模式 -> 从下拉列表选择战舰
+			* 不幸的是，没有好的方法从用户那里询问舰队，此输出将带有标准舰队，如果您的谜题有不同的集合，您需要手动修改[船只类型数量]和[舰队描述]
+	* 阴影谜题
 		* kurotto
-			* Use Number mode -> White circle Style
-			* for empty circle - just place white circle with any digit and then press backspace to remove the digit
-		* kuromasu (Use Number mode -> White circle Style)
-		* tapa (Number mode -> Tapa submode)
+			* 使用数字模式 -> 白色圆圈样式
+			* 对于空圆圈 - 只需放置任意数字的白色圆圈，然后按退格键删除数字
+		* kuromasu（使用数字模式 -> 白色圆圈样式）
+		* tapa（数字模式 -> Tapa子模式）
 		* nurikabe
 		* nanro
 		* lits
-		* crossthestreams (cts)
-			* ensure enough white row/column on top and left - e.g. If your puzzle is 10x10 size and has 4 rows of clues above and 3 columns of clues in the left, then set the Rows = 14, Columns = 13, White Space: Over = 4, Under = 0, Left = 3, Right = 0 in the New Grid settings
-			* enter clues using Number mode -> Normal submode (use the multiplication character on digit 8 from the keyboard for star)
-			* use grey shading in solution (Surface mode)
-	* Region Division Puzzles
+		* 穿越溪流（cts）
+			* 确保顶部和左侧有足够的空白行/列 - 例如，如果您的谜题是10x10大小，顶部有4行线索，左侧有3列线索，那么在新网格设置中设置行 = 14，列 = 13，空白区域：上方 = 4，下方 = 0，左侧 = 3，右侧 = 0
+			* 使用数字模式 -> 常规子模式输入线索（使用键盘上数字8上的乘法字符表示星）
+			* 在解答中使用灰色阴影（表面模式）
+	* 区域分割谜题
 		* fillomino
 		* pentominous
-		* cave
-			* Solution shaded in any shades of grey.
+		* 洞穴
+			* 解答用任何灰色阴影表示。
 		* snakepit
-			* Use Number mode -> White circle Style
-			* for empty circle - just place white circle with any digit and then press backspace to remove the digit
-		* araf (Use Number mode -> White circle Style, green edge in solution mode for regions)
-		* spiralgalaxies (sg)
-			* (Panel: ON) use 2nd or 8th or 9th position circles for Black, White and Grey circle respectively in the Shape -> Shape -> Circle
-			* (Border: ON) for placing circles on edges and corners
-			* green edge in solution mode for regions
-	* Loop/ Path Puzzles
-		* balanceloop
-			* Use Number mode -> White circle style / Black circle style
-			* for empty circle, just place white / Black circle with any digit and then press backspace to remove the digit
-		* masyu (Use Shape mode -> Shape/Circle submode [Panel: ON])
+			* 使用数字模式 -> 白色圆圈样式
+			* 对于空圆圈 - 只需放置任意数字的白色圆圈，然后按退格键删除数字
+		* araf（使用数字模式 -> 白色圆圈样式，解答模式中区域用绿色边缘）
+		* 螺旋星系（sg）
+			* （面板：开启）在形状 -> 形状 -> 圆圈中分别使用第2、8、9位置的圆圈表示黑色、白色和灰色圆圈
+			* （边框：开启）用于在边缘和角落放置圆圈
+			* 解答模式中区域用绿色边缘
+	* 循环/路径谜题
+		* 平衡循环
+			* 使用数字模式 -> 白色圆圈样式/黑色圆圈样式
+			* 对于空圆圈，只需放置任意数字的白色/黑色圆圈，然后按退格键删除数字
+		* masyu（使用形状模式 -> 形状/圆圈子模式[面板：开启]）
 		* tapalikeloop
 		* slitherlink
 		* yajilin
-			* (Panel: ON) For square - Shape mode -> Shape submode -> Square (from dropdown list - XL size will occupy entire cell), use grey square (9th shape in the panel)
-			* For Number and Arrow: use Number mode -> Arrow submode (drag the mouse in the cell for the arrow, type in the number from keyboard or select from panel)
-		* doubleyajilin
-			* (Panel: ON) For square - Shape mode -> Shape submode -> Square (from dropdown list - XL size will occupy entire cell), use grey square (9th shape in the panel)
-			* For Number and Arrow: use Number mode -> Arrow submode (drag the mouse in the cell for the arrow, type in the number from keyboard or select from panel)
-		* castlewall
-			* (Panel: ON) For square - Shape mode -> Shape submode -> Square (from dropdown list - XL size will occupy entire cell), use black and white square respectively (2nd and 8th shape in the panel)
-			* For Number and Arrow: use Number mode -> Arrow submode (drag the mouse in the cell for the arrow, type in the number from keyboard or select from panel)
-			* Use white color style for arrow and clue on black square
-3. How to use it?
-	1. Create a Puzzle in "Edit: Problem" mode using the guide provided in Step 2.
-	2. Select "Solution Mode" and fill in the solution (Grey shading, Green numbering, Green loop, Green edge).
-	3. click on Share -> URL with answer check / Extra options -> puzzle_output_file.
-	4. In the "Header" area, type the puzzle type you are creating.
-	5. click on "GMPuzzle output" button.
-	6. Specify your required filename and click "Download" button.
-		* Template: [Constructor Initials]-[SubmissionID]-[Genre]-[ShortTitle].txt
-		* Example: SG-012-kurottu-pairs.txt
+			* （面板：开启）对于方块 - 形状模式 -> 形状子模式 -> 方块（从下拉列表 - XL大小将占满整个单元格），使用灰色方块（面板中第9个形状）
+			* 对于数字和箭头：使用数字模式 -> 箭头子模式（在单元格中拖动鼠标画箭头，从键盘输入数字或从面板选择）
+		* 双yajilin
+			* （面板：开启）对于方块 - 形状模式 -> 形状子模式 -> 方块（从下拉列表 - XL大小将占满整个单元格），使用灰色方块（面板中第9个形状）
+			* 对于数字和箭头：使用数字模式 -> 箭头子模式（在单元格中拖动鼠标画箭头，从键盘输入数字或从面板选择）
+		* 城墙
+			* （面板：开启）对于方块 - 形状模式 -> 形状子模式 -> 方块（从下拉列表 - XL大小将占满整个单元格），分别使用黑色和白色方块（面板中第2和第8个形状）
+			* 对于数字和箭头：使用数字模式 -> 箭头子模式（在单元格中拖动鼠标画箭头，从键盘输入数字或从面板选择）
+			* 对于黑色方块上的箭头和线索使用白色样式
+3. 如何使用？
+	1. 使用步骤2中提供的指南在"编辑：问题"模式中创建谜题。
+	2. 选择"解答模式"并填入解答（灰色阴影、绿色编号、绿色循环、绿色边缘）。
+	3. 点击分享 -> 带答案检查的URL/额外选项 -> puzzle_output_file。
+	4. 在"标题"区域，输入您正在创建的谜题类型。
+	5. 点击"GMPuzzle输出"按钮。
+	6. 指定您需要的文件名并点击"下载"按钮。
+		* 模板：[构造者缩写]-[提交ID]-[类型]-[简短标题].txt
+		* 示例：SG-012-kurottu-pairs.txt
 
 
-### Clone
-* Opens the puzzle in new link in new tab. Its like making a copy/duplicate of the Puzzle.
+### 克隆
+* 在新标签页中的新链接中打开谜题。就像制作谜题的副本/复制品。
 
-### Edit Background
-* User can set custom background to the puzzle.
-* Image URL: Provide source link of the image.
-* Customize various settings (X and Y position, Width and Height, Opacity (transperency), etc) to rightly fit the background image.
+### 编辑背景
+* 用户可以为谜题设置自定义背景。
+* 图像URL：提供图像的源链接。
+* 自定义各种设置（X和Y位置、宽度和高度、不透明度（透明度）等）以正确适应背景图像。
 
-### I/O Sudoku
-* This function is to allow the flexibility of Importing and Exporting a Sudoku. It supports Import and Export to https://www.sudokuwiki.org/sudoku.htm solver.
-	* Import Sudoku
-		* Type the input string in the text area which contains digits (0-9) where 0 or (.) is used for an empty cell. No spaces in the string. The number of digits entered should be a perfect square. Basically (1,4,9,16,25,36,49,64,81) is allowed. That is grid size of 1x1 to 9x9.
-		* If its default sudoku grid created from the New Grid options then Penpa automatically knows the position of the Sudoku grid.
-		* User can also select a square portion of the grid and import the digits. User needs to specify the location of the first cell in terms of Row and Column. Then specify the Sudoku gridsize (Size:). Default is 9x9.
-	* Export Sudoku
-		* If its default sudoku grid created from the New Grid options then Penpa automatically knows the position of the Sudoku grid.
-		* User can also select a square portion of the grid and export the digits. User needs to specify the location of the first cell in terms of Row and Column. Then specify the Sudoku gridsize (Size:). Default is 9x9.		
-		* Pressing Export button also automatically copies the output string to the clipboard.
-	* Options
-		* Ignore Pencil Marks - Sometimes we want to export the Sudoku grid in the middle of the solve. Checkmark this option and then export to ignore the Corner and Centre digits used while solving.
-		* Ignore Whitespace for Import - Some softwares generate row wise sudoku information. Such outputs which has space in between digits can now be directly imported using this option.
-		* Skip Import Non-Square Check - If one needs to import only some digits and not entire Sudoku.
+### I/O数独
+* 此功能允许导入和导出数独的灵活性。它支持与 https://www.sudokuwiki.org/sudoku.htm 解题器的导入和导出。
+	* 导入数独
+		* 在文本区域中输入包含数字(0-9)的输入字符串，其中0或(.)用于空单元格。字符串中无空格。输入的数字数量应该是完全平方数。基本上允许(1,4,9,16,25,36,49,64,81)。即1x1到9x9的网格大小。
+		* 如果是从新网格选项创建的默认数独网格，那么Penpa会自动知道数独网格的位置。
+		* 用户也可以选择网格的方形部分并导入数字。用户需要指定第一个单元格在行和列方面的位置。然后指定数独网格大小(大小:)。默认是9x9。
+	* 导出数独
+		* 如果是从新网格选项创建的默认数独网格，那么Penpa会自动知道数独网格的位置。
+		* 用户也可以选择网格的方形部分并导出数字。用户需要指定第一个单元格在行和列方面的位置。然后指定数独网格大小(大小:)。默认是9x9。
+		* 按导出按钮也会自动将输出字符串复制到剪贴板。
+	* 选项
+		* 忽略铅笔标记 - 有时我们想在解题过程中导出数独网格。勾选此选项然后导出以忽略解题时使用的角落和中心数字。
+		* 忽略导入空格 - 一些软件生成按行排列的数独信息。现在可以使用此选项直接导入在数字之间有空格的此类输出。
+		* 跳过导入非方形检查 - 如果需要仅导入一些数字而不是整个数独。
 
-### Load
-* This function has multiple purposes. Mainly, it is a solution for "URL too long Error".
-* If the puzzle is too big and contains a lot of elements, it generates a big URL and the size is limited by the internet. In order to address this issue, one can use this Load button option to copy the big URL and click "Load URL" button.
-* Basically, one can share the "Long URL" and ask the user to copy paste in the "Load" button and load the puzzle locally into Penpa.
-* Secondly, it can also be used to import https://puzz.link/db/ puzzles. Those with a :heavy_check_mark: the right of the name are supported while those marked with a :x: are not (yet).
+### 加载
+* 此功能有多种用途。主要是解决"URL过长错误"的方案。
+* 如果谜题太大并包含大量元素，它会生成大URL，而大小受互联网限制。为了解决此问题，可以使用此加载按钮选项复制大URL并点击"加载URL"按钮。
+* 基本上，可以分享"长URL"并要求用户在"加载"按钮中复制粘贴并将谜题本地加载到Penpa中。
+* 其次，它也可以用于导入 https://puzz.link/db/ 谜题。那些名称右侧有:heavy_check_mark:的受支持，而标记为:x:的（尚）不受支持。
 
 Aho-ni-Narikire :heavy_check_mark: ;
-Akari (Light up) :heavy_check_mark: ;
+Akari (点灯) :heavy_check_mark: ;
 Amibo :x: ;
 Angle Loop :x: ;
 Aqre :heavy_check_mark: ;
@@ -660,7 +678,7 @@ Yajitatami :x: ;
 Yin-Yang :heavy_check_mark: ;
 Yosenabe :x: ;
 
-* It can also import puzzles from https://pzprxs.vercel.app/, a fork of puzz.link with different puzzle variants.
+* 它还可以从https://pzprxs.vercel.app/导入谜题，这是puzz.link的一个分支，有不同的谜题变体。
 
 Building Walk :x: ;
 Canal View :heavy_check_mark: ;
@@ -675,7 +693,7 @@ Rassi Silai :heavy_check_mark: ;
 Tonttiraja :heavy_check_mark: ;
 Voxas :x: ;
 
-* These variants are currently impossible because of the grid or the controls.
+* 由于网格或控制的原因，这些变体目前无法实现。
 
 Army Ants :x: ;
 Bonsan :x: ;
@@ -688,64 +706,91 @@ Satogaeri :x: ;
 Tawamurenga :x: ;
 Wall Logic :x: ;
 
+## 快捷键
+`鼠标`
+- 左键点击：单选并应用所选模式
+- 左键拖拽：多选
+- 右键点击：删除
+- 鼠标滚轮：在当前应用模式中滚动选项
 
-### Settings
+`键盘`
+- 数字键1~9：输入对应数字
+- 字母键A~Z：输入对应字母
+- 空格键：删除（橡皮擦）
+- 回车键/Tab键：在选定的模式之间循环
+- Shift + 回车键/Tab键：反向循环
+- Ctrl/Shift：多选单元格
+- 箭头键：移动光标
+- Delete/Backspace：删除内容
+- Alt + 拖拽：矩形选择
 
-#### App Display
-* Display Theme: It currently offers two options (light and dark).
-* Display Layout: It currently offers three options.
-	* Flex Tools Left
-	* Flex Tools Right
-	* Streaming Layout (beta version)
-* Language: It currently offers two options (English and Japanese).
-* Timer: User can prefer to hide the entire timer area by selecting "hide" option.
+`数独模式快捷键`
+- Z：切换到常规子模式
+- X：切换到角落子模式  
+- C：切换到中心子模式
+- V：切换到阴影子模式
+- Shift：临时角落子模式
+- Ctrl：临时中心子模式
+- Shift + Del：仅删除角落铅笔标记
+- Ctrl + Del：仅删除中心铅笔标记
 
-#### Puzzle Display
-* Sudoku PencilMarks: User preference for "Center" pencil mark size in "Sudoku" mode.
-	* Dynamic - Upto 5 digits its larger size and then it becomes small.
-	* Large - All digits are large.
-	* Small - All digits are small.
-* Sudoku Normal: User preference for "Normal" digits in "Sudoku" mode.
-	* Centered - All digits are centered to the cell.
-	* Bottom - All digits are shifted downward and close to the bottom of the cell. (Useful to avoid overlap with Killer clues)
-* Outline on Text: User preference to outline text in the puzzle grid. Default is OFF.
-	* Useful if dark background.
-* Starbattle Dots: User preference for Right Click dots in Star battle composite mode.
-	* High Range - Default.
-	* Low Range - User needs to click much closer to corners and edges for dots.
-	* Disable - Completely disable the dot feature and only have Star/Cross.
-* Surface Second Color: In Surface Mode, by default right click uses green color for any selected choice of primary color. Using this setting user can choose their own choice of right click (secondary) color. This also affects Composite Edge IO.
+### 设置
 
-#### Tools
-* Custom Colors: To enable custom colors.
-* Floating Panel: Turning on this button will visually display the options to the user while using Number or Shape modes.
-* Quick Panel Button: To hide the Panel Button Option from the display area.
+#### 应用显示
+* 显示主题：目前提供两个选项（浅色和深色）。
+* 显示布局：目前提供三个选项。
+	* Flex工具在左
+	* Flex工具在右
+	* 流式布局（测试版）
+* 语言：目前提供两个选项（英语和日语）。
+* 计时器：用户可以通过选择"隐藏"选项来隐藏整个计时器区域。
 
-#### Export
-* Auto-Shorten Links: Turning on this button will shorten the Share URL links automatically.
+#### 谜题显示
+* 数独铅笔标记：用户对"数独"模式中"中心"铅笔标记大小的偏好。
+	* 动态 - 5位数字以内是较大尺寸，然后变小。
+	* 大 - 所有数字都是大的。
+	* 小 - 所有数字都是小的。
+* 数独常规：用户对"数独"模式中"常规"数字的偏好。
+	* 居中 - 所有数字在单元格中居中。
+	* 底部 - 所有数字向下移动并靠近单元格底部。（有助于避免与杀手线索重叠）
+* 文本轮廓：用户对谜题网格中文本轮廓的偏好。默认为关闭。
+	* 在深色背景下有用。
+* 星之战斗点：用户对星之战斗复合模式中右键点的偏好。
+	* 高范围 - 默认。
+	* 低范围 - 用户需要点击得更靠近角落和边缘才能出现点。
+	* 禁用 - 完全禁用点功能，只有星/叉。
+* 表面第二颜色：在表面模式下，默认右键使用绿色作为任何选定主颜色的选择。使用此设置，用户可以选择自己的右键（次要）颜色选择。这也影响复合边IO。
 
-#### Input Options
-* Mouse Middle Button: Shortcut to switch between Problem/Solution mode while in "setter mode". To activate, select YES.
-* Reload Protection: Reload Button. Users can now choose if they want the webpage to ask for confirmation for reloading or closing the page. This is to avoid accidental closing of tab or refreshing. Default is "OFF".
-* Conflict Detection: It is upcoming feature. Some of the puzzle genres have smart checking ability. Default is ON. User can turn it OFF for the ongoing puzzle or for all the future puzzles.
-* Check pencil marks: User option to enable conflict checker to look for conflicts in pencil marks as well.
-* Button "Edit tags for conflict checker": User option to dynamically change conflict checker settings by modifying these tags.
-* Any color can match green line/edge in solution: User option to enable multi colored solution for lines. Somewhat similar to puzz-link different loop colors option. Although in puzz.link, when two different colored lines touch, they would unite to single color. This does not happen here.
-* Sudoku Z/Y & XCV Keys: User can turn off Sudoku Shortcut Keys. Useful in puzzles involving alphabets.
+#### 工具
+* 自定义颜色：启用自定义颜色。
+* 浮动面板：打开此按钮将在使用数字或形状模式时向用户可视化显示选项。
+* 快速面板按钮：从显示区域隐藏面板按钮选项。
 
-#### Saving/Storage
-Note - Settings are saved locally for the best user experience.
-* Saved Settings: Clear cookies -> To reset the settings.
-* Auto-save puzzle in browser history -> This could be additional layer of protection on top of "Reload Protection". When the tab becomes invisible (tab change or other reason) then the current state of penpa would be pushed and saved in the browser history. This would enable easy recovery of the progress in case of accidental refresh or tab close.
-[Cautious] If frequently changing tabs, browser history may get populated with these links.
-* Local Storage: Default is ON. It stores the local progress of the solution in the solver mode. User can clear the storage of ongoing puzzle using "Clear this puzzle" button or entire storage using "clear all" button.
+#### 导出
+* 自动缩短链接：打开此按钮将自动缩短分享URL链接。
 
-### Stop Watch
-* start - starts the timer. Lowest precision is 1/10th of a second.
-* pause - pauses the timer. click on start again to continue.
-* stop - stops the timer. click on start again to restart the timer. click on reset to set the timer back to 00:00.
-* reset - resets the timer to 00:00.
-* hide/show - hide/show the timer.
+#### 输入选项
+* 鼠标中键：在"设置模式"下在问题/解答模式之间切换的快捷方式。要激活，请选择是。
+* 重新加载保护：重新加载按钮。用户现在可以选择是否希望网页询问确认重新加载或关闭页面。这是为了避免意外关闭标签页或刷新。默认为"关闭"。
+* 冲突检测：这是即将推出的功能。一些谜题类型具有智能检查能力。默认为开启。用户可以为正在进行的谜题或所有未来谜题关闭它。
+* 检查铅笔标记：用户选项，使冲突检查器也查找铅笔标记中的冲突。
+* 按钮"编辑冲突检查器标签"：用户选项，通过修改这些标签动态更改冲突检查器设置。
+* 任何颜色都可以匹配解答中的绿色线/边：用户选项，为线条启用多色解答。与puzz-link不同循环颜色选项有些相似。虽然在puzz.link中，当两条不同颜色的线相接触时，它们会合并为单一颜色。这里不会发生这种情况。
+* 数独Z/Y和XCV键：用户可以关闭数独快捷键。在涉及字母的谜题中很有用。
 
-## LICENSE
-Released under MIT license. Check https://github.com/swaroopg92/penpa-edit/blob/master/LICENSE.
+#### 保存/存储
+注意 - 设置保存在本地以获得最佳用户体验。
+* 保存的设置：清除cookie -> 重置设置。
+* 在浏览器历史记录中自动保存谜题 -> 这可能是在"重新加载保护"基础上的额外保护层。当标签页变得不可见时（标签页更改或其他原因），penpa的当前状态将被推送并保存在浏览器历史记录中。这将在意外刷新或标签页关闭的情况下轻松恢复进度。
+[谨慎] 如果频繁更改标签页，浏览器历史记录可能会被这些链接填充。
+* 本地存储：默认为开启。它在解题模式下存储解答的本地进度。用户可以使用"清除此谜题"按钮清除正在进行的谜题存储或使用"全部清除"按钮清除整个存储。
+
+### 秒表
+* 开始 - 启动计时器。最低精度是1/10秒。
+* 暂停 - 暂停计时器。再次点击开始继续。
+* 停止 - 停止计时器。再次点击开始重新启动计时器。点击重置将计时器设置回00:00。
+* 重置 - 将计时器重置为00:00。
+* 隐藏/显示 - 隐藏/显示计时器。
+
+## 许可证
+在MIT许可证下发布。查看 https://github.com/zerolacqua/penpa-edit/blob/master/LICENSE 
