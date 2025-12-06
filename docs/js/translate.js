@@ -466,6 +466,11 @@ function trans() {
         "custom_message": { JP: "正解時に出るカスタムメッセージ", EN: "Custom Congratulation Message on answer check pop up", ZH: "答案检测正确时庆祝弹窗内容：" },
     }
     trans_text(button_text, label_text, placeholder);
+    
+    // 刷新约束下拉菜单以应用翻译
+    if (typeof add_constraints === 'function') {
+        add_constraints();
+    }
 }
 
 const PenpaText = {
@@ -601,6 +606,34 @@ const PenpaText = {
         page_help: { EN: 'Help', JP: 'ヘルプ', ZH: '帮助' },
         constraints: { EN: 'Constraints (Beta)', JP: '専用モード', ZH: '专用模式' },
 
+        // Constraint groups
+        constraints_general: { EN: 'General', JP: '一般', ZH: '通用' },
+        constraints_sudoku: { EN: 'Sudoku', JP: '数独', ZH: '数独' },
+        constraints_puzzle: { EN: 'Puzzle', JP: 'パズル', ZH: '谜题' },
+
+        // Constraint options
+        constraints_all: { EN: 'All', JP: '全て', ZH: '全部' },
+        constraints_classic: { EN: 'Classic', JP: 'クラシック', ZH: '标准' },
+        constraints_odd_even: { EN: 'Odd Even', JP: '奇偶', ZH: '奇偶' },
+        constraints_arrow: { EN: 'Arrow', JP: 'アロー', ZH: '箭头' },
+        constraints_thermo: { EN: 'Thermo', JP: 'サーモ', ZH: '温度计' },
+        constraints_little_killer: { EN: 'Little Killer', JP: 'リトルキラー', ZH: '小杀手' },
+        constraints_killer: { EN: 'Killer', JP: 'キラー', ZH: '杀手' },
+        constraints_difference: { EN: 'Difference', JP: '差分', ZH: '差值' },
+        constraints_kropki: { EN: 'Kropki', JP: 'クロプキ', ZH: '黑白点' },
+        constraints_palindrome: { EN: 'Palindrome', JP: '回文', ZH: '回文' },
+        constraints_sandwich: { EN: 'Sandwich', JP: 'サンドイッチ', ZH: '三明治' },
+        constraints_quadruple: { EN: 'Quadruple', JP: 'クアドラプル', ZH: '四重' },
+        constraints_xv: { EN: 'XV', JP: 'XV', ZH: 'XV' },
+        constraints_between_line: { EN: 'Between Line', JP: 'ビトウィーン', ZH: '之间线' },
+        constraints_battenberg: { EN: 'Battenberg', JP: 'バッテンベルク', ZH: '双色蛋糕' },
+        constraints_slitherlink: { EN: 'Slitherlink', JP: 'スリザーリンク', ZH: '数回' },
+        constraints_tapa: { EN: 'Tapa', JP: 'タパ', ZH: 'Tapa' },
+        constraints_star_battle: { EN: 'Star Battle', JP: 'スターバトル', ZH: '星战' },
+        constraints_tents: { EN: 'Tents', JP: 'テント', ZH: '帐篷' },
+        constraints_minesweeper: { EN: 'Minesweeper', JP: 'マインスイーパー', ZH: 'Minesweeper' },
+        constraints_akari: { EN: 'Akari', JP: 'Akari', ZH: 'Akari' },
+
         disable_penpa_lite: {
             JP: 'Penpa Liteを無効化',
             EN: 'Disable Penpa Lite',
@@ -618,9 +651,9 @@ const PenpaText = {
         solve_path: { EN: 'Solve Path', JP: '想定解法(Solve Path)', ZH: '解题步骤' },
 
         feedback_modal: {
-            EN: 'Any suggestions or improvements, send an email to <b> penpaplus@gmail.com </b> <br> or <br> Create an issue on github <a href="https://github.com/swaroopg92/penpa-edit/issues" target="_blank">here</a> <br> or <br> Join discussions in #penpa-plus channel in the Discord Server <a href="https://discord.com/channels/709370620642852885/1253382126435569665" target="_blank">here</a>.',
-            JP: '修正やご提案は以下からご連絡ください。 <b> penpaplus@gmail.com </b> <br> / <br> Create an issue on github <a href=https://github.com/swaroopg92/penpa-edit/issues" target="_blank">Github</a> <br> / <br> Join discussions in #penpa-plus channel in the Discord Server <a href="https://discord.com/channels/709370620642852885/1253382126435569665" target="_blank">here</a>."',
-            ZH: '若您有任何改进意见和建议，可以发送邮件至 <b> penpaplus@gmail.com </b> <br> 或 <br> 在 <a href=https://github.com/swaroopg92/penpa-edit/issues" target="_blank">Github</a> 上创建issue <br> 或 <br> 在 <a href="https://discord.com/channels/709370620642852885/1253382126435569665" target="_blank">Discord 服务器</a> 的 #penpa-plus 频道进行讨论。'
+            EN: 'This is a forked version of the original Penpa+ with additional features and Chinese localization. <br><br> For issues specific to this fork, send an email to <b> zerolacqua@gmail.com </b> <br> or <br> Create an issue on github <a href="https://github.com/zerolacqua/penpa-edit/issues" target="_blank">here</a> <br><br> For general Penpa+ discussions, join #penpa-plus channel in the Discord Server <a href="https://discord.com/channels/709370620642852885/1253382126435569665" target="_blank">here</a>.',
+            JP: 'これはオリジナルのPenpa+に機能追加と中国語対応を行ったフォーク版です。<br><br> このフォーク固有の問題については以下からご連絡ください： <b> zerolacqua@gmail.com </b> <br> または <br> <a href="https://github.com/zerolacqua/penpa-edit/issues" target="_blank">Github</a> でissueを作成 <br><br> 一般的なPenpa+の議論については <a href="https://discord.com/channels/709370620642852885/1253382126435569665" target="_blank">Discord サーバー</a> の #penpa-plus チャンネルにご参加ください。',
+            ZH: '这是原版 Penpa+ 的分支版本，添加了额外功能和中文本地化。<br><br> 针对此分支版本的问题反馈，请发送邮件至 <b> zerolacqua@gmail.com </b> <br> 或 <br> 在 <a href="https://github.com/zerolacqua/penpa-edit/issues" target="_blank">Github</a> 上创建issue <br><br> 一般性的 Penpa+ 讨论，请加入 <a href="https://discord.com/channels/709370620642852885/1253382126435569665" target="_blank">Discord 服务器</a> 的 #penpa-plus 频道。'
         },
 
         contest_answer: {

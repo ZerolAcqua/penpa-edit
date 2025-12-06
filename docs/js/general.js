@@ -108,14 +108,23 @@ function create() {
 
 function add_constraints() {
     let constraints = document.getElementById('constraints_settings_opt');
+    
+    // 清空现有内容
+    constraints.innerHTML = '';
+    
     penpa_constraints['options_groups'].forEach(function(element, index) {
         let optgroup = document.createElement("optgroup");
-        optgroup.label = element;
+        // 使用翻译系统为组标签命名
+        const groupKey = 'constraints_' + element;
+        optgroup.label = PenpaText.get(groupKey) || element;
 
         penpa_constraints['options'][element].forEach(function(subelement, subindex) {
             let opt = document.createElement("option");
             opt.value = subelement;
-            opt.innerHTML = subelement;
+            
+            // 使用翻译系统为选项命名
+            const optionKey = 'constraints_' + subelement.replace(/\s+/g, '_');
+            opt.innerHTML = PenpaText.get(optionKey) || subelement;
 
             if (subelement === "all") {
                 opt.setAttribute("selected", true);
