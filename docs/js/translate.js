@@ -129,6 +129,7 @@ function trans() {
         "address_solve": { JP: "出題用URL", EN: "URL for solving", ZH: "解答模式链接" },
         "address_clone": { JP: "複製用URL", EN: "URL for cloning", ZH: "复制模式链接" },
         "address_comp": { JP: "コンテスト用URL", EN: "Contest-Mode URL", ZH: "竞赛模式链接" },
+        "expansion_replay": { JP: "リプレイURL", EN: "Replay URL", ZH: "回放链接" },
         "expansion": { JP: "拡張出力", EN: "URL with Answer Check / Advanced Options", ZH: "答案检测链接/高级设置" },
         "closeBtn_save1": { JP: "コピー", EN: "Copy", ZH: "复制" },
         "closeBtn_save2": { JP: "ダウンロード", EN: "Download", ZH: "下载" },
@@ -138,6 +139,7 @@ function trans() {
         "pp_file_open": { JP: "puzzle_output_file", EN: "puzzle_output_file", ZH: "谜题输出文件" },
         "closeBtn_save5": { JP: "解答判定付き出題用アドレスを出力", EN: "Generate URL with answer check", ZH: "生成带答案检测的链接" },
         "closeBtn_save6": { JP: "短縮", EN: "Shorten", ZH: "生成短链" },
+        "closeBtn_replay": { JP: "リプレイ付きURLを出力", EN: "Generate URL with Replay", ZH: "生成带回放的链接" },
         "pp_file": { JP: "pp_fileを出力", EN: "pp_file output", ZH: "输出 pp_file" },
         "load_url": { JP: "URLを入力", EN: "Load URL", ZH: "加载链接" },
         "puzzlerules": { JP: "ルールを表示", EN: "Show rules", ZH: "显示规则" },
@@ -469,6 +471,7 @@ function trans() {
         "custom_lb": { JP: "カスタムメッセージ", EN: "Custom Message", ZH: "自定义信息" },
         "save6texttitle": { JP: "URL入力", EN: "Load URL", ZH: "载入链接" },
         "save7texttitle": { JP: "ジャンル・タグの追加・削除", EN: "Add/Remove Genre Tags", ZH: "添加/移除类型标签" },
+        "share_replay_title": { JP: "リプレイを共有", EN: "Share Replay", ZH: "分享回放" },
         "save4texttitle": { JP: "数独文字列の入出力", EN: "Input/Output Sudoku String", ZH: "数独字符串输入/输出" },
         "firstcell_row_lb": { JP: "行：", EN: "Row:", ZH: "行：" },
         "firstcell_column_lb": { JP: "列：", EN: "Col:", ZH: "列：" },
@@ -496,12 +499,21 @@ function trans() {
         "saveinfoauthor": { JP: "作者名", EN: "Puzzle creator name", ZH: "作者名" },
         "saveinforules": { JP: "例：クラシック数独のルール", EN: "e.g. Classic sudoku rules.", ZH: "例：标准数独规则" },
         "custom_message": { JP: "正解時に出るカスタムメッセージ", EN: "Custom Congratulation Message on answer check pop up", ZH: "答案检测正确时庆祝弹窗内容：" },
+        "saveinfosource": { JP: "例：https://example.com", EN: "https://example.com", ZH: "例：https://example.com" },
+        "savetextname": { JP: "sample.txt", EN: "sample.txt", ZH: "sample.txt" },
+        "savetextarea_pp": { JP: "例：classicsudoku や cs", EN: "e.g. classicsudoku or cs", ZH: "例：classicsudoku 或 cs" },
+        "saveinfosolver": { JP: "解答者名", EN: "Solver Name", ZH: "解答者姓名" },
     }
     trans_text(button_text, label_text, placeholder);
     
     // 刷新约束下拉菜单以应用翻译
     if (typeof add_constraints === 'function') {
         add_constraints();
+    }
+    
+    // 重新初始化标签选择器以应用翻译
+    if (typeof init_genre_tags === 'function') {
+        init_genre_tags();
     }
 }
 
