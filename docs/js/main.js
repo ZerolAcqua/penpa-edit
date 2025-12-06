@@ -2432,10 +2432,7 @@ function clear_storage_one() {
     if (typeof pu.url === 'string') {
         let hash = "penpa_" + md5(pu.url);
         localStorage.removeItem(hash);
-        Swal.fire({
-            html: '<h2 class="info">' + PenpaText.get('local_storage_cleared') + '</h2>',
-            icon: 'info'
-        });
+        infoMsg('<h2 class="info">' + PenpaText.get('local_storage_cleared') + '</h2>')
     }
 
     // turn off localstorage for this puzzle
@@ -2456,8 +2453,5 @@ function clear_storage_all() {
     // turn off localstorage for current puzzle
     UserSettings.save_current_puzzle = false;
 
-    Swal.fire({
-        html: '<h2 class="info">' + PenpaText.get('local_storage_cleared') + '</h2>',
-        icon: 'info'
-    });
+    infoMsg('<h2 class="info">' + PenpaText.get('local_storage_cleared') + '</h2>')
 }

@@ -1,6 +1,5 @@
 function errorMsg(html) {
     Swal.fire({
-        title: Identity.errorTitle,
         html: html,
         icon: 'error',
         confirmButtonText: Identity.okButtonText,
@@ -9,7 +8,6 @@ function errorMsg(html) {
 
 function infoMsg(html) {
     Swal.fire({
-        title: Identity.infoTitle,
         html: html,
         icon: 'info',
         confirmButtonText: Identity.okButtonText,
