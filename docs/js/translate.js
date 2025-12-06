@@ -28,7 +28,12 @@ function trans_text(button_text, label_text, placeholder) {
     PenpaText._innerText.forEach(el => {
         const element = document.getElementById(el);
         if (element) {
-            element.textContent = PenpaText.get(el);
+            // 对于包含HTML标签的元素，使用innerHTML而不是textContent
+            if (el === 'ks_multicolor_desc' || el === 'ks_surface_desc') {
+                element.innerHTML = PenpaText.get(el);
+            } else {
+                element.textContent = PenpaText.get(el);
+            }
         }
     });
     PenpaText._placeholder.forEach(el => {
@@ -613,7 +618,33 @@ const PenpaText = {
         'ks_delete_submode_contents',
         'ks_double_click',
         'ks_footnote',
-        'ks_surface_desc'
+        'ks_surface_desc',
+        // Help page elements
+        'help_header',
+        'help_intro',
+        'help_usage_title',
+        'help_shortcuts',
+        'help_instructions',
+        'help_youtube',
+        'help_video_list',
+        'help_create_steps',
+        'help_faq',
+        'help_discord',
+        'help_bookmarklet',
+        'help_development_title',
+        'help_feedback',
+        'help_contribute',
+        'help_todo',
+        'help_changelog',
+        'help_credits',
+        'help_license',
+        'help_rulesets_title',
+        'help_rulesets_note',
+        'help_eric_fox',
+        'help_wpc',
+        'help_lmi',
+        'help_puzzle_duel',
+        'help_ropeko'
     ],
     _placeholder: [
         'saveimagename',
@@ -1186,9 +1217,9 @@ const PenpaText = {
             ZH: '显示快捷键说明'
         },
         ks_multicolor_desc: {
-            EN: 'Use number keys 0 - 9 to fill colors in the selected cells. switch between styles. For styles 11 and 12, press ALT+1 or ALT+2 respectively.',
-            JP: '数字キー0-9で選択したセルに色を塗る。スタイル11と12の場合はALT+1またはALT+2を押す。',
-            ZH: '使用数字键0-9为选中的单元格填充颜色。对于样式11和12，分别按ALT+1或ALT+2。'
+            EN: 'Use number keys <kbd>0</kbd> - <kbd>9</kbd> to fill colors in the selected cells. switch between styles. For styles 11 and 12, press <kbd>ALT</kbd> + <kbd>1</kbd> or <kbd>ALT</kbd> + <kbd>2</kbd> respectively.',
+            JP: '数字キー<kbd>0</kbd>-<kbd>9</kbd>で選択したセルに色を塗る。スタイル11と12の場合は<kbd>ALT</kbd> + <kbd>1</kbd>または<kbd>ALT</kbd> + <kbd>2</kbd>を押す。',
+            ZH: '使用数字键<kbd>0</kbd>-<kbd>9</kbd>为选中的单元格填充颜色。对于样式11和12，分别按<kbd>ALT</kbd> + <kbd>1</kbd>或<kbd>ALT</kbd> + <kbd>2</kbd>。'
         },
         ks_normal_submode: {
             EN: 'Normal Submode*',
@@ -1251,9 +1282,136 @@ const PenpaText = {
             ZH: '* 这些可以在设置中禁用。'
         },
         ks_surface_desc: {
-            EN: 'Use number keys 0 - 9 to quickly switch between styles. For styles 11 and 12, press 1 and the second digit in quick succession.',
-            JP: '数字キー0-9でスタイルを素早く切り替える。スタイル11と12の場合は、1と2桁目を素早く続けて押す。',
-            ZH: '使用数字键0-9快速切换样式。对于样式11和12，快速连续按1和第二个数字。'
+            EN: 'Use number keys <kbd>0</kbd> - <kbd>9</kbd> to quickly switch between styles. For styles 11 and 12, press <kbd>1</kbd> and the second digit in quick succession.',
+            JP: '数字キー<kbd>0</kbd>-<kbd>9</kbd>でスタイルを素早く切り替える。スタイル11と12の場合は、<kbd>1</kbd>と2桁目を素早く続けて押す。',
+            ZH: '使用数字键<kbd>0</kbd>-<kbd>9</kbd>快速切换样式。对于样式11和12，快速连续按<kbd>1</kbd>和第二个数字。'
+        },
+
+        // Help page translations
+        help_header: {
+            EN: 'Welcome to Penpa+',
+            JP: 'Penpa+へようこそ',
+            ZH: '欢迎使用 Penpa+'
+        },
+        help_intro: {
+            EN: 'It\'s a web application and universal pencil puzzle editor capable of drawing many different kinds of pencil puzzles. You can download your puzzles as images and save puzzle links in the form of URLs to share with others.',
+            JP: '様々な種類の鉛筆パズルを描くことができる、ウェブアプリケーションかつ汎用鉛筆パズルエディタです。パズルを画像としてダウンロードしたり、URL形式でパズルリンクを保存して他の人と共有できます。',
+            ZH: '这是一个网页应用程序和通用铅笔谜题编辑器，能够绘制许多不同类型的铅笔谜题。你可以将谜题下载为图像，并以URL形式保存谜题链接与他人分享。'
+        },
+        help_usage_title: {
+            EN: 'Usage',
+            JP: '使用方法',
+            ZH: '使用方法'
+        },
+        help_shortcuts: {
+            EN: 'Shortcuts',
+            JP: 'ショートカット',
+            ZH: '快捷键'
+        },
+        help_instructions: {
+            EN: 'Tool Instructions',
+            JP: 'ツール説明',
+            ZH: '工具说明'
+        },
+        help_youtube: {
+            EN: 'Youtube Tutorials',
+            JP: 'Youtubeチュートリアル',
+            ZH: 'Youtube 教程'
+        },
+        help_video_list: {
+            EN: 'List of Youtube Tutorials',
+            JP: 'Youtubeチュートリアル一覧',
+            ZH: 'Youtube 教程列表'
+        },
+        help_create_steps: {
+            EN: 'Steps to Create a Sudoku/Puzzle',
+            JP: '数独/パズル作成手順',
+            ZH: '创建数独/谜题的步骤'
+        },
+        help_faq: {
+            EN: 'Frequently Asked Questions',
+            JP: 'よくある質問',
+            ZH: '常见问题'
+        },
+        help_discord: {
+            EN: 'Discord Channel',
+            JP: 'Discordチャンネル',
+            ZH: 'Discord 频道'
+        },
+        help_bookmarklet: {
+            EN: 'Bookmarklet to Open Puzz.Link / PZV / pzprxs / OtherPenpaFork Puzzles in Penpa+',
+            JP: 'Puzz.Link / PZV / pzprxs / その他PenpaフォークのパズルをPenpa+で開くブックマークレット',
+            ZH: '在 Penpa+ 中打开 Puzz.Link / PZV / pzprxs / 其他 Penpa 分支谜题的书签小工具'
+        },
+        help_development_title: {
+            EN: 'Development',
+            JP: '開発',
+            ZH: '开发'
+        },
+        help_feedback: {
+            EN: 'Provide Feedback',
+            JP: 'フィードバック提供',
+            ZH: '提供反馈'
+        },
+        help_contribute: {
+            EN: 'Contribute to Project',
+            JP: 'プロジェクトに貢献',
+            ZH: '为项目贡献'
+        },
+        help_todo: {
+            EN: 'Ongoing TO-DO list',
+            JP: '進行中のTO-DOリスト',
+            ZH: '进行中的待办事项'
+        },
+        help_changelog: {
+            EN: 'Changelogs',
+            JP: '変更ログ',
+            ZH: '更新日志'
+        },
+        help_credits: {
+            EN: 'Credits',
+            JP: 'クレジット',
+            ZH: '致谢'
+        },
+        help_license: {
+            EN: 'License',
+            JP: 'ライセンス',
+            ZH: '许可证'
+        },
+        help_rulesets_title: {
+            EN: 'Sudoku/Puzzle Rulesets',
+            JP: '数独/パズルルール集',
+            ZH: '数独/谜题规则集'
+        },
+        help_rulesets_note: {
+            EN: 'Note: This is by no means an exhaustive list. Penpa+ is not affiliated with these sources. Please contact respective owners for any further information.',
+            JP: '注意：これは決して網羅的なリストではありません。Penpa+はこれらのソースと提携していません。詳細については各所有者にお問い合わせください。',
+            ZH: '注意：这绝不是详尽的列表。Penpa+ 与这些来源无关联。如需更多信息，请联系各自的所有者。'
+        },
+        help_eric_fox: {
+            EN: 'Eric Fox - Dictionary of Rulesets',
+            JP: 'Eric Fox - ルール辞典',
+            ZH: 'Eric Fox - 规则词典'
+        },
+        help_wpc: {
+            EN: 'Ryotaro Chiba - WPC Puzzles',
+            JP: 'Ryotaro Chiba - WPCパズル',
+            ZH: 'Ryotaro Chiba - WPC 谜题'
+        },
+        help_lmi: {
+            EN: 'LMI - WSC IB (Sudoku Variants)',
+            JP: 'LMI - WSC IB (数独バリエーション)',
+            ZH: 'LMI - WSC IB (数独变体)'
+        },
+        help_puzzle_duel: {
+            EN: 'Puzzle Duel Club',
+            JP: 'パズル決闘クラブ',
+            ZH: 'Puzzle Duel 俱乐部'
+        },
+        help_ropeko: {
+            EN: 'Ropeko - Logic Puzzles List',
+            JP: 'Ropeko - 論理パズル一覧',
+            ZH: 'Ropeko - 逻辑谜题列表'
         },
 
         _todo: {}

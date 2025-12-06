@@ -1846,37 +1846,37 @@
     </div>
     <div id="modal-help" class="modal">
         <div id="modal-help-content" class="modal-content">
-            <h3 class="modal-header">Welcome to Penpa+</h3>
+            <h3 class="modal-header" id="help_header">Welcome to Penpa+</h3>
             <div id="modal-help-body">
-                <p>It's a web application and universal pencil puzzle editor capable of drawing many different kinds of pencil puzzles. You can download your puzzles as images and save puzzle links in the form of URLs to share with others.</p>
-                <h5 class="modal-subheader">Usage</h5>
+                <p id="help_intro">It's a web application and universal pencil puzzle editor capable of drawing many different kinds of pencil puzzles. You can download your puzzles as images and save puzzle links in the form of URLs to share with others.</p>
+                <h5 class="modal-subheader" id="help_usage_title">Usage</h5>
                 <div class="nb_button" id="usageButtons">
-                    <a class="button" onclick="show_shortcuts();">Shortcuts</a>
-                    <a class="button" target="_blank" href="https://github.com/zerolacqua/penpa-edit/blob/master/README.md">Tool Instructions</a>
-                    <a class="button" target="_blank" href="https://www.youtube.com/channel/UCAv0bBz7MTVJOlHzINnHhYQ/videos">Youtube Tutorials</a>
-                    <a class="button" target="_blank" href="https://github.com/swaroopg92/penpa-edit/blob/master/VIDEO_TUTORIALS.md">List of Youtube Tutorials</a>
-                    <a class="button" target="_blank" href="https://github.com/swaroopg92/penpa-edit/wiki/Steps-to-Create-Sudoku-or-Puzzle-in-Penpa">Steps to Create a Sudoku/Puzzle</a>
-                    <a class="button" target="_blank" href="https://docs.google.com/document/d/12Mde0ogcpdtgM2nz6Z_nZYJnMJyUOMC5f3FUxzH9q74/edit">Frequently Asked Questions</a>
-                    <a class="button" target="_blank" href="https://discord.gg/BbN89j5">Discord Channel</a>
-                    <a class="button" target="_blank" href="javascript: (() => {let current_url = window.location.href;   if (current_url.includes('penpa-edit')){let current_url_parts = current_url.split('/penpa-edit/');   let new_url = 'https://swaroopg92.github.io/penpa-edit/'+ current_url_parts[1];   window.open(new_url);} else if (current_url.match(/\/puzz.link\/p\?|pzprxs\.vercel\.app\/p\?|\/pzv\.jp\/p(\.html)?\?/)){let new_url = 'https://swaroopg92.github.io/penpa-edit/?m=edit&p='+current_url; window.open(new_url);} else{console.log('No support exist for ->', current_url)}})();">Bookmarklet to Open Puzz.Link / PZV / pzprxs / OtherPenpaFork Puzzles in Penpa+</a>
+                    <a class="button" onclick="show_shortcuts();" id="help_shortcuts">Shortcuts</a>
+                    <a class="button" target="_blank" href="https://github.com/zerolacqua/penpa-edit/blob/master/README.md" id="help_instructions">Tool Instructions</a>
+                    <a class="button" target="_blank" href="https://www.youtube.com/channel/UCAv0bBz7MTVJOlHzINnHhYQ/videos" id="help_youtube">Youtube Tutorials</a>
+                    <a class="button" target="_blank" href="https://github.com/swaroopg92/penpa-edit/blob/master/VIDEO_TUTORIALS.md" id="help_video_list">List of Youtube Tutorials</a>
+                    <a class="button" target="_blank" href="https://github.com/swaroopg92/penpa-edit/wiki/Steps-to-Create-Sudoku-or-Puzzle-in-Penpa" id="help_create_steps">Steps to Create a Sudoku/Puzzle</a>
+                    <a class="button" target="_blank" href="https://docs.google.com/document/d/12Mde0ogcpdtgM2nz6Z_nZYJnMJyUOMC5f3FUxzH9q74/edit" id="help_faq">Frequently Asked Questions</a>
+                    <a class="button" target="_blank" href="https://discord.gg/BbN89j5" id="help_discord">Discord Channel</a>
+                    <a class="button" target="_blank" href="javascript: (() => {let current_url = window.location.href;   if (current_url.includes('penpa-edit')){let current_url_parts = current_url.split('/penpa-edit/');   let new_url = 'https://swaroopg92.github.io/penpa-edit/'+ current_url_parts[1];   window.open(new_url);} else if (current_url.match(/\/puzz.link\/p\?|pzprxs\.vercel\.app\/p\?|\/pzv\.jp\/p(\.html)?\?/)){let new_url = 'https://swaroopg92.github.io/penpa-edit/?m=edit&p='+current_url; window.open(new_url);} else{console.log('No support exist for ->', current_url)}})();" id="help_bookmarklet">Bookmarklet to Open Puzz.Link / PZV / pzprxs / OtherPenpaFork Puzzles in Penpa+</a>
                 </div>
-                <h5 class="modal-subheader">Development</h5>
+                <h5 class="modal-subheader" id="help_development_title">Development</h5>
                 <div class="nb_button">
-                    <a class="button" target="_blank" onclick="load_feedback();">Provide Feedback</a>
-                    <a class="button" target="_blank" href="https://github.com/swaroopg92/penpa-edit/blob/master/CONTRIBUTING.md">Contribute to Project</a>
-                    <a class="button" target="_blank" href="https://github.com/swaroopg92/penpa-edit/projects/1">Ongoing TO-DO list</a>
-                    <a class="button" target="_blank" href="https://github.com/swaroopg92/penpa-edit/blob/master/CHANGELOG.md">Changelogs</a>
-                    <a class="button" target="_blank" href="https://github.com/swaroopg92/penpa-edit/blob/master/CREDITS.md">Credits</a>
-                    <a class="button" target="_blank" href="https://github.com/zerolacqua/penpa-edit/blob/master/LICENSE">License</a>
+                    <a class="button" target="_blank" onclick="load_feedback();" id="help_feedback">Provide Feedback</a>
+                    <a class="button" target="_blank" href="https://github.com/swaroopg92/penpa-edit/blob/master/CONTRIBUTING.md" id="help_contribute">Contribute to Project</a>
+                    <a class="button" target="_blank" href="https://github.com/swaroopg92/penpa-edit/projects/1" id="help_todo">Ongoing TO-DO list</a>
+                    <a class="button" target="_blank" href="https://github.com/swaroopg92/penpa-edit/blob/master/CHANGELOG.md" id="help_changelog">Changelogs</a>
+                    <a class="button" target="_blank" href="https://github.com/swaroopg92/penpa-edit/blob/master/CREDITS.md" id="help_credits">Credits</a>
+                    <a class="button" target="_blank" href="https://github.com/zerolacqua/penpa-edit/blob/master/LICENSE" id="help_license">License</a>
                 </div>
-                <h5 class="modal-subheader">Sudoku/Puzzle Rulesets</h5>
-                <p>Note: This is by no means an exhaustive list. Penpa+ is not affiliated with these sources. Please contact respective owners for any further information.</p>
+                <h5 class="modal-subheader" id="help_rulesets_title">Sudoku/Puzzle Rulesets</h5>
+                <p id="help_rulesets_note">Note: This is by no means an exhaustive list. Penpa+ is not affiliated with these sources. Please contact respective owners for any further information.</p>
                 <div class="nb_button">
-                    <a class="button" href="https://tinyurl.com/puzzlerules" target="_blank">Eric Fox - Dictionary of Rulesets</a>
-                    <a class="button" href="https://wpcunofficial.miraheze.org/wiki/Category:Puzzle_Types" target="_blank">Ryotaro Chiba - WPC Puzzles</a>
-                    <a class="button" href="http://logicmastersindia.com/lmitests/dl.asp?attachmentid=669&v1" target="_blank">LMI - WSC IB (Sudoku Variants)</a>
-                    <a class="button" href="http://www.puzzleduel.club/archive/types" target="_blank">Puzzle Duel Club</a>
-                    <a class="button" href="http://www.logic-puzzles.ropeko.ch/php/db/search.php" target="_blank">Ropeko - Logic Puzzles List</a>
+                    <a class="button" href="https://tinyurl.com/puzzlerules" target="_blank" id="help_eric_fox">Eric Fox - Dictionary of Rulesets</a>
+                    <a class="button" href="https://wpcunofficial.miraheze.org/wiki/Category:Puzzle_Types" target="_blank" id="help_wpc">Ryotaro Chiba - WPC Puzzles</a>
+                    <a class="button" href="http://logicmastersindia.com/lmitests/dl.asp?attachmentid=669&v1" target="_blank" id="help_lmi">LMI - WSC IB (Sudoku Variants)</a>
+                    <a class="button" href="http://www.puzzleduel.club/archive/types" target="_blank" id="help_puzzle_duel">Puzzle Duel Club</a>
+                    <a class="button" href="http://www.logic-puzzles.ropeko.ch/php/db/search.php" target="_blank" id="help_ropeko">Ropeko - Logic Puzzles List</a>
                 </div>
             </div>
         </div>
