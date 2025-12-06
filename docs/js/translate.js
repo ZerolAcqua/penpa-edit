@@ -1219,7 +1219,7 @@ const PenpaText = {
         ks_multicolor_desc: {
             EN: 'Use number keys <kbd>0</kbd> - <kbd>9</kbd> to fill colors in the selected cells. switch between styles. For styles 11 and 12, press <kbd>ALT</kbd> + <kbd>1</kbd> or <kbd>ALT</kbd> + <kbd>2</kbd> respectively.',
             JP: '数字キー<kbd>0</kbd>-<kbd>9</kbd>で選択したセルに色を塗る。スタイル11と12の場合は<kbd>ALT</kbd> + <kbd>1</kbd>または<kbd>ALT</kbd> + <kbd>2</kbd>を押す。',
-            ZH: '使用数字键<kbd>0</kbd>-<kbd>9</kbd>为选中的单元格填充颜色。对于样式11和12，分别按<kbd>ALT</kbd> + <kbd>1</kbd>或<kbd>ALT</kbd> + <kbd>2</kbd>。'
+            ZH: '使用数字键 <kbd>0</kbd> - <kbd>9</kbd> 为选中的单元格填充颜色。对于样式 11 和 12，分别按 <kbd>ALT</kbd> + <kbd>1</kbd> 或 <kbd>ALT</kbd> + <kbd>2</kbd>。'
         },
         ks_normal_submode: {
             EN: 'Normal Submode*',
@@ -1284,7 +1284,7 @@ const PenpaText = {
         ks_surface_desc: {
             EN: 'Use number keys <kbd>0</kbd> - <kbd>9</kbd> to quickly switch between styles. For styles 11 and 12, press <kbd>1</kbd> and the second digit in quick succession.',
             JP: '数字キー<kbd>0</kbd>-<kbd>9</kbd>でスタイルを素早く切り替える。スタイル11と12の場合は、<kbd>1</kbd>と2桁目を素早く続けて押す。',
-            ZH: '使用数字键<kbd>0</kbd>-<kbd>9</kbd>快速切换样式。对于样式11和12，快速连续按<kbd>1</kbd>和第二个数字。'
+            ZH: '使用数字键 <kbd>0</kbd> - <kbd>9</kbd> 快速切换样式。对于样式 11 和 12，快速连续按 <kbd>1</kbd> 和第二个数字。'
         },
 
         // Help page translations
