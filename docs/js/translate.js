@@ -31,6 +31,16 @@ function trans_text(button_text, label_text, placeholder) {
     document.querySelectorAll('.lb_generic_no').forEach(el => el.textContent = PenpaText.get('no'));
     document.querySelectorAll('.lb_generic_on').forEach(el => el.textContent = PenpaText.get('on'));
     document.querySelectorAll('.lb_generic_off').forEach(el => el.textContent = PenpaText.get('off'));
+    
+    // 处理 toggle_btn 类的按钮，根据其当前文本内容决定翻译
+    document.querySelectorAll('.toggle_btn').forEach(el => {
+        const currentText = el.textContent.trim().toUpperCase();
+        if (currentText === 'ON') {
+            el.textContent = PenpaText.get('on');
+        } else if (currentText === 'OFF') {
+            el.textContent = PenpaText.get('off');
+        }
+    });
 
     for (var i in placeholder) {
         if (document.getElementById(i)) {
