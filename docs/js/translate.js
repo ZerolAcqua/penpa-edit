@@ -10,7 +10,17 @@ function trans_text(button_text, label_text, placeholder) {
         let element = document.getElementById(i);
         if (element) {
             const text = getText(button_text, i);
-            element.innerHTML = text;
+            // Special handling for settings button to keep the icon
+            if (i === 'page_settings') {
+                // Only show text in Chinese mode, keep icon only for English/Japanese
+                if (UserSettings.app_language !== 'EN') {
+                    element.innerHTML = '<i class="fa fa-cog"></i> ' + text;
+                } else {
+                    element.innerHTML = '<i class="fa fa-cog"></i>';
+                }
+            } else {
+                element.innerHTML = text;
+            }
             element.value = text;
         } else {
             console.warn(`Could not find element #${i}`);
@@ -28,14 +38,17 @@ function trans_text(button_text, label_text, placeholder) {
     PenpaText._innerText.forEach(el => {
         const element = document.getElementById(el);
         if (element) {
-            // 对于包含HTML标签的元素，使用innerHTML而不是textContent
-            if (el === 'ks_multicolor_desc' || el === 'ks_surface_desc') {
-                element.innerHTML = PenpaText.get(el);
-            } else {
-                element.textContent = PenpaText.get(el);
-            }
+            element.textContent = PenpaText.get(el);
         }
     });
+
+    PenpaText._innerHTML.forEach(el => {
+        const element = document.getElementById(el);
+        if (element) {
+            element.innerHTML = PenpaText.get(el);
+        }
+    });
+
     PenpaText._placeholder.forEach(el => {
         const element = document.getElementById(el);
         if (element) {
@@ -46,34 +59,24 @@ function trans_text(button_text, label_text, placeholder) {
     document.querySelectorAll('.lb_generic_no').forEach(el => el.textContent = PenpaText.get('no'));
     document.querySelectorAll('.lb_generic_on').forEach(el => el.textContent = PenpaText.get('on'));
     document.querySelectorAll('.lb_generic_off').forEach(el => el.textContent = PenpaText.get('off'));
-    
-    // 重新设置通过 UserSettings 管理的按钮状态，确保翻译正确
-    if (typeof UserSettings !== 'undefined') {
-        // 重新设置显示解答按钮
-        if (UserSettings._show_solution !== undefined) {
-            const visibilityButton = document.getElementById("visibility_button");
-            if (visibilityButton) {
-                visibilityButton.textContent = PenpaText.get(UserSettings._show_solution ? "on" : "off");
-            }
-        }
-        
-        // 重新设置浮窗面板按钮
-        if (UserSettings._panel_shown !== undefined) {
-            const panelButton = document.getElementById("quick_panel_toggle");
-            if (panelButton) {
-                panelButton.textContent = PenpaText.get(UserSettings._panel_shown ? "on" : "off");
-            }
-        }
 
-        // 重新设置沿格线放置按钮
-        if (UserSettings._draw_edges !== undefined) {
-            const edgeButton = document.getElementById("edge_button");
-            if (edgeButton) {
-                edgeButton.textContent = PenpaText.get(UserSettings._draw_edges ? "on" : "off");
+    // 重新设置切换按钮翻译
+    var switchButtons = {
+        "visibility_button": "_show_solution",
+        "quick_panel_toggle": "_panel_shown",
+        "edge_button": "_draw_edges"
+    };
+
+    if (typeof UserSettings !== 'undefined') {
+        for (const [buttonId, settingKey] of Object.entries(switchButtons)) {
+            const button = document.getElementById(buttonId);
+            if (button) {
+                button.textContent = PenpaText.get(UserSettings[settingKey] ? "on" : "off");
             }
         }
     }
 
+    // 占位符
     for (var i in placeholder) {
         if (document.getElementById(i)) {
             document.getElementById(i).placeholder = getText(placeholder, i);
@@ -108,6 +111,7 @@ function trans() {
         "edit_bg_image": { JP: "背景を編集", EN: "Edit Background", ZH: "编辑背景" },
         "input_sudoku": { JP: "数独入出力", EN: "I/O Sudoku", ZH: "数独导入/导出" },
         "input_url": { JP: "入力", EN: "Load", ZH: "加载" },
+        "page_settings": { JP: "設定", EN: "", ZH: "设置" },
         "tb_undo": { JP: "戻", EN: "Undo", ZH: "撤销" },
         "tb_redo": { JP: "進", EN: "Redo", ZH: "重做" },
         "tb_reset": { JP: "選択消去", EN: "Erase selected mode", ZH: "清除所选模式" },
@@ -505,12 +509,12 @@ function trans() {
         "saveinfosolver": { JP: "解答者名", EN: "Solver Name", ZH: "解答者姓名" },
     }
     trans_text(button_text, label_text, placeholder);
-    
+
     // 刷新约束下拉菜单以应用翻译
     if (typeof add_constraints === 'function') {
         add_constraints();
     }
-    
+
     // 重新初始化标签选择器以应用翻译
     if (typeof init_genre_tags === 'function') {
         init_genre_tags();
@@ -588,7 +592,7 @@ const PenpaText = {
         'lb_settings_conflict_off_all',
         'lb_settings_sudoku_keys',
         'lb_settings_textoutline',
-        'lb_settings_pencil_marks', 
+        'lb_settings_pencil_marks',
         'lb_settings_lineanycolor',
         'lb_settings_auto_save_history',
         'lb_settings_storage',
@@ -617,7 +621,6 @@ const PenpaText = {
         'ks_cycle_tools',
         'ks_clear_selection',
         'ks_show_shortcuts',
-        'ks_multicolor_desc',
         'ks_normal_submode',
         'ks_corner_submode',
         'ks_centre_submode',
@@ -630,7 +633,6 @@ const PenpaText = {
         'ks_delete_submode_contents',
         'ks_double_click',
         'ks_footnote',
-        'ks_surface_desc',
         // Help page elements
         'help_header',
         'help_intro',
@@ -662,6 +664,10 @@ const PenpaText = {
         'saveimagename',
         'iostring',
         'urlstring'
+    ],
+    _innerHTML: [
+        'ks_multicolor_desc',
+        'ks_surface_desc'
     ],
     dictionary: {
         // Modes
