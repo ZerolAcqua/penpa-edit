@@ -103,6 +103,7 @@ function trans() {
         "closeBtn_save3": { JP: "開く", EN: "Open", ZH: "打开" },
         "closeBtn_save4": { JP: "キャンセル", EN: "Cancel", ZH: "取消" },
         "solution_open": { JP: "解答判定", EN: "Answer descision", ZH: "答案判断" },
+        "pp_file_open": { JP: "puzzle_output_file", EN: "puzzle_output_file", ZH: "谜题输出文件" },
         "closeBtn_save5": { JP: "解答判定付き出題用アドレスを出力", EN: "Generate URL with answer check", ZH: "生成带答案检测的链接" },
         "closeBtn_save6": { JP: "短縮", EN: "Shorten", ZH: "生成短链" },
         "pp_file": { JP: "pp_fileを出力", EN: "pp_file output", ZH: "输出 pp_file" },
@@ -113,6 +114,11 @@ function trans() {
         "closeBtn_input2": { JP: "消去", EN: "Clear", ZH: "清除" },
         "load_input": { JP: "数独をインポート", EN: "Import Sudoku", ZH: "导入数独" },
         "export_input": { JP: "数独をエクスポート", EN: "Export Sudoku", ZH: "导出数独" },
+        "and_tmp_lb": { JP: "すべての制約", EN: "All constraints", ZH: "所有约束" },
+        "or_tmp_lb": { JP: "いずれかの制約", EN: "Any of the constraints", ZH: "任意约束" },
+        "sol_loopline_exact_lb": { JP: "線 - スタイルを正確に一致", EN: "Line - Match exact styles", ZH: "线 - 匹配精确样式" },
+        "sol_surface_exact_lb": { JP: "表面 - 色を正確に一致", EN: "Surface - Match exact colors", ZH: "涂色 - 匹配精确颜色" },
+        "sol_loopedge_exact_lb": { JP: "エッジ - スタイルを正確に一致", EN: "Edge - Match exact styles", ZH: "边 - 匹配精确样式" },
         "closeBtn_bg_image": { JP: "閉じる", EN: "Close", ZH: "关闭" }
     }
     var label_text = {
@@ -429,6 +435,7 @@ function trans() {
         "save5texttitle": { JP: "ヘッダー", EN: "header", ZH: "头文件" },
         "custom_lb": { JP: "カスタムメッセージ", EN: "Custom Message", ZH: "自定义信息" },
         "save6texttitle": { JP: "URL入力", EN: "Load URL", ZH: "载入链接" },
+        "save7texttitle": { JP: "ジャンル・タグの追加・削除", EN: "Add/Remove Genre Tags", ZH: "添加/移除类型标签" },
         "save4texttitle": { JP: "数独文字列の入出力", EN: "Input/Output Sudoku String", ZH: "数独字符串输入/输出" },
         "firstcell_row_lb": { JP: "行：", EN: "Row:", ZH: "行：" },
         "firstcell_column_lb": { JP: "列：", EN: "Col:", ZH: "列：" },
