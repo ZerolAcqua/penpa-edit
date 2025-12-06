@@ -772,9 +772,9 @@ const PenpaText = {
         },
 
         answer_check_empty: {
-            EN: 'No specific option selected by Author. Answer check looks for all the elements with appropriate accepted colors. Check <a href="https://github.com/swaroopg92/penpa-edit/blob/master/images/multisolution.PNG" target="_blank">this</a> for reference.',
-            JP: 'この問題には解答チェックのオプションが選択されていません。解答チェックをするためには、配置する物体の種類や色が全て正しい必要があります。 <a href=https://github.com/swaroopg92/penpa-edit/blob/master/images/multisolution.PNG" target="_blank">こちら</a> もご参照ください。"',
-            ZH: '作者未设置答案检测选项，答案检测将匹配所有可接受的对应颜色元素。详情请参考<a href=https://github.com/swaroopg92/penpa-edit/blob/master/images/multisolution.PNG" target="_blank">此处</a>。'
+            EN: 'No specific option selected by Author. Answer check looks for all the elements with appropriate accepted colors. Check <a href="https://github.com/ZerolAcqua/penpa-edit/blob/master/images/multisolution.PNG" target="_blank">this</a> for reference.',
+            JP: 'この問題には解答チェックのオプションが選択されていません。解答チェックをするためには、配置する物体の種類や色が全て正しい必要があります。 <a href="https://github.com/ZerolAcqua/penpa-edit/blob/master/images/multisolution.PNG" target="_blank">こちら</a> もご参照ください。"',
+            ZH: '作者未设置答案检测选项，答案检测将匹配所有可接受的对应颜色元素。详情请参考<a href="https://github.com/ZerolAcqua/penpa-edit/blob/master/images/multisolution.PNG" target="_blank">此处</a>。'
         },
 
         puzzlink_row_column: {
