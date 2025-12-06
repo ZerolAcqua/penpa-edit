@@ -948,7 +948,7 @@
     </div>
     <div id="modal-bg-image" class="modal">
         <div id="modal-bg-image-content" class="modal-content">
-            <h3 class="modal-header">Set Background Image</h3>
+            <h3 class="modal-header" id="bg_image_title">Set Background Image</h3>
             <div>
                 <table style="width: 100%">
                     <colgroup>
@@ -1126,7 +1126,7 @@
             </div>
             <div id="modal-save-body">
                 <textarea class="text_area" readonly rows="1" cols="50" id="savetextarea"></textarea>
-                <span class="DM">Filename:<input type="text" placeholder="sample.txt" id="savetextname"></span>
+                <span class="DM"><span id="save_filename_lb">Filename:</span><input type="text" placeholder="sample.txt" id="savetextname"></span>
             </div>
             <div class="nb_button">
                 <input type="button" id="closeBtn_save1" value="Copy" />
@@ -1692,7 +1692,7 @@
                             <td>
                                 <select name="mousemiddle" id="mousemiddle_settings_opt">
                                     <option value="1" selected="selected" class="lb_generic_no">No</option>
-                                    <option value="2" class="lb_generic_yess">Yes</option>
+                                    <option value="2" class="lb_generic_yes">Yes</option>
                                 </select>
                             </td>
                         </tr>
