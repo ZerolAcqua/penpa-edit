@@ -2424,6 +2424,11 @@ onload = function() {
             autopaused = true;
         }
     });
+    
+    setTimeout(function() {
+        // Show the interface after translation is complete
+        document.body.classList.add('translation-ready');
+    }, 100);
 };
 
 function clear_storage_one() {

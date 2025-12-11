@@ -1874,18 +1874,6 @@
             document.head.appendChild(script);
         }
         document.getElementById('version-number').innerHTML = ver;
-
-        // Initialize Chinese translation after all scripts are loaded
-        window.addEventListener('load', function() {
-            // Small delay to ensure all scripts are fully loaded
-            setTimeout(function() {
-                if (typeof trans === 'function') {
-                    trans();
-                }
-                // Show the interface after translation is complete
-                document.body.classList.add('translation-ready');
-            }, 100);
-        });
     </script>
 </body>
 

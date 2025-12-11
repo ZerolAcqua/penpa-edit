@@ -102,6 +102,12 @@ function create() {
     set_genre_tags(pu.user_tags);
 
     pu.redraw();
+
+    // Ensure translation is applied even if no language cookie exists
+    // The trans() function will also handle showing the page
+    if (typeof trans === 'function') {
+        trans();
+    }
 }
 
 function add_constraints() {
