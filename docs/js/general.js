@@ -1328,8 +1328,36 @@ function advancecontrol_on() {
     }
 }
 
+function getLocalizedModeName(editMode) {
+    // Extract mode translations from the local label_text
+    const modeTranslations = {
+        'surface': { JP: "黒マス", EN: "Surface", ZH: "涂色" },
+        'multicolor': { JP: "マルチカラー", EN: "Multicolor", ZH: "多色" },
+        'line': { JP: "線", EN: "Line", ZH: "线" },
+        'linee': { JP: "辺", EN: "Edge", ZH: "边" },
+        'wall': { JP: "壁", EN: "Wall", ZH: "墙" },
+        'board': { JP: "マス", EN: "Box", ZH: "格子" },
+        'move': { JP: "移動", EN: "Move", ZH: "移动" },
+        'number': { JP: "数字", EN: "Number", ZH: "数字" },
+        'symbol': { JP: "記号", EN: "Shape", ZH: "形状" },
+        'special': { JP: "特殊", EN: "Special", ZH: "特殊" },
+        'cage': { JP: "枠", EN: "Cage", ZH: "笼框" },
+        'sudoku': { JP: "数独", EN: "Sudoku", ZH: "数独" },
+        'combi': { JP: "複合", EN: "Composite", ZH: "复合" }
+    };
+    
+    const translation = modeTranslations[editMode.toLowerCase()];
+    if (translation) {
+        return translation[UserSettings.app_language] || translation.EN;
+    }
+    
+    // Fallback to uppercase edit mode name if not found
+    return editMode.toUpperCase();
+}
+
 function ResetCheck() {
-    let titleText = PenpaText.get('reset_check_title_generic', pu.mode[pu.mode.qa].edit_mode.toUpperCase());
+    const localizedModeName = getLocalizedModeName(pu.mode[pu.mode.qa].edit_mode);
+    let titleText = PenpaText.get('reset_check_title_generic', localizedModeName);
 
     if (pu.mode[pu.mode.qa].edit_mode.toUpperCase() === "LINE") {
         if (pu.mode[pu.mode.qa][pu.mode[pu.mode.qa].edit_mode][0] === '4') {

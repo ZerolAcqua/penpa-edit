@@ -936,7 +936,7 @@ const PenpaText = {
         reset_check_title_edge_erased: {
             EN: 'Reset Erased Edges in Edge Mode?',
             JP: '全ての枠消を消去しますか?',
-            ZH: '重置边类别所以消除？'
+            ZH: '重置边类别所有消除？'
         },
         reset_check_title_edge: {
             EN: 'Erase/Clear all EDGE mode elements?',
