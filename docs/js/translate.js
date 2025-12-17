@@ -9,7 +9,16 @@ function trans_text(button_text, label_text, placeholder) {
         let element = document.getElementById(key);
         if (element) {
             const text = getText(button_text, key);
-            element.innerHTML = text;
+            if (key === 'page_settings') {
+                // show text in ZH/JP mode to align the height of the button
+                if (UserSettings.app_language !== 'EN') {
+                    element.innerHTML = '<i class="fa fa-cog"></i> ' + text;
+                } else {
+                    element.innerHTML = '<i class="fa fa-cog"></i>';
+                }
+            } else {
+                element.innerHTML = text;
+            }
             element.value = text;
         } else {
             console.warn(`Could not find element #${key}`);
@@ -88,6 +97,7 @@ function trans() {
         "edit_bg_image": { JP: "背景を編集", EN: "Edit Background", ZH: "编辑背景" },
         "input_sudoku": { JP: "数独入出力", EN: "I/O Sudoku", ZH: "数独导入/导出" },
         "input_url": { JP: "入力", EN: "Load", ZH: "加载" },
+        "page_settings": { JP: "設定", EN: "", ZH: "设置" },
         "tb_undo": { JP: "戻", EN: "Undo", ZH: "撤销" },
         "tb_redo": { JP: "進", EN: "Redo", ZH: "重做" },
         "tb_reset": { JP: "選択消去", EN: "Erase selected mode", ZH: "清除所选模式" },
