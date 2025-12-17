@@ -426,7 +426,7 @@ const UserSettings = {
         dropdown.value = newValue ? 1 : 2;
 
         const button = document.getElementById("quick_panel_toggle");
-        button.textContent = newValue ? "ON" : "OFF";
+        button.textContent = newValue ? PenpaText.get('on') : PenpaText.get('off');
 
         panel_onoff();
     },

@@ -32,6 +32,28 @@ function trans_text(button_text, label_text, placeholder) {
     document.querySelectorAll('.lb_generic_on').forEach(el => el.textContent = PenpaText.get('on'));
     document.querySelectorAll('.lb_generic_off').forEach(el => el.textContent = PenpaText.get('off'));
 
+    // reset the button texts based on UserSettings
+    if (typeof UserSettings !== 'undefined') {
+        if (UserSettings._show_solution !== undefined) {
+            const visibilityButton = document.getElementById("visibility_button");
+            if (visibilityButton) {
+                visibilityButton.textContent = PenpaText.get(UserSettings._show_solution ? "on" : "off");
+            }
+        }
+        if (UserSettings._panel_shown !== undefined) {
+            const panelButton = document.getElementById("quick_panel_toggle");
+            if (panelButton) {
+                panelButton.textContent = PenpaText.get(UserSettings._panel_shown ? "on" : "off");
+            }
+        }
+        if (UserSettings._draw_edges !== undefined) {
+            const edgeButton = document.getElementById("edge_button");
+            if (edgeButton) {
+                edgeButton.textContent = PenpaText.get(UserSettings._draw_edges ? "on" : "off");
+            }
+        }
+    }
+
     for (var key in placeholder) {
         if (document.getElementById(key)) {
             document.getElementById(key).placeholder = getText(placeholder, key);
