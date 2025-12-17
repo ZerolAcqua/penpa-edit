@@ -857,7 +857,8 @@ function CreateCheck() {
         showCancelButton: true,
         confirmButtonColor: Color.BLUE_SKY,
         cancelButtonColor: Color.RED,
-        confirmButtonText: PenpaText.get('create_check_warning_confirm')
+        confirmButtonText: PenpaText.get('create_check_warning_confirm'),
+        cancelButtonText: PenpaText.get('cancel')
     }).then((result) => {
         if (result.isConfirmed) {
             // Save grid size setting
@@ -1346,7 +1347,8 @@ function ResetCheck() {
         showCancelButton: true,
         confirmButtonColor: Color.BLUE_SKY,
         cancelButtonColor: Color.RED,
-        confirmButtonText: PenpaText.get('reset_check_confirm')
+        confirmButtonText: PenpaText.get('reset_check_confirm'),
+        cancelButtonText: PenpaText.get('cancel')
     }).then((result) => {
         if (result.isConfirmed) {
             pu.reset_selectedmode();
@@ -1368,7 +1370,8 @@ function DeleteCheck() {
         showCancelButton: true,
         confirmButtonColor: Color.BLUE_SKY,
         cancelButtonColor: Color.RED,
-        confirmButtonText: PenpaText.get('delete_check_confirm')
+        confirmButtonText: PenpaText.get('delete_check_confirm'),
+        cancelButtonText: PenpaText.get('cancel')
     }).then((result) => {
         if (result.isConfirmed) {
             pu.reset_board(); // contains reset of undo/redo

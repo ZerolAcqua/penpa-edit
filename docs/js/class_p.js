@@ -395,7 +395,7 @@ class Puzzle {
         let font_size = 0.09 * pause_canvas.height; // 9 % of display size/ height of canvas
         pause_ctx.font = font_size + 'px sans-serif';
         let lineheight = 1.2 * font_size;
-        let textstring = "Paused\nClick on \"Start\"\nor \"F4\"";
+        let textstring = PenpaText.get('pause_message') || "Paused\nClick on \"Start\"\nor \"F4\"";
         let lines = textstring.split('\n');
         let textwidth;
 

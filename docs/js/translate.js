@@ -584,6 +584,8 @@ const PenpaText = {
         show: { EN: 'Show', JP: '表示', ZH: '显示' },
         hide: { EN: 'Hide', JP: '隠す', ZH: '隐藏' },
         ok: { EN: 'OK', ZH: '确认' },
+        cancel: { EN: 'Cancel', JP: 'キャンセル', ZH: '取消' },
+        pause_message: { JP: "ポーズ中\n\"スタート\"をクリック\nまたは\"F4\"", EN: "Paused\nClick on \"Start\"\nor \"F4\"", ZH: "已暂停\n点击\"开始\"\n或按\"F4\"" },
 
         // Export Image
         nb_rules_lb: { JP: "ルール：", EN: "Rules:", ZH: '规则：' },
